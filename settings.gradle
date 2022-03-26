@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "meters_data"
 include ':app'
+include ':core:resources'
+include ':feature:profile'
