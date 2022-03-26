@@ -111,3 +111,5 @@ buildSrc/build/pluginUnderTestMetadata/plugin-under-test-metadata.properties
 buildSrc/build/reports/plugin-development/validation-report.txt
 buildSrc/build/source-roots/buildSrc/source-roots.txt
 buildSrc/build/tmp/jar/MANIFEST.MF
+buildSrc/build/classes/kotlin/main/Deps$dagger$2.class
+buildSrc/build/classes/kotlin/main/Deps$daggerCompiler$2.class

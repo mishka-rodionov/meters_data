@@ -15,6 +15,7 @@ object Versions {
     const val material = "1.3.0"
     const val constraintLayout = "1.1.3"
     const val jUnit = "4.12"
+    const val dagger = "2.41"
 }
 
 /**
@@ -35,5 +36,7 @@ object Deps {
     val materialDesign by lazy { "com.google.android.material:material:${Versions.material}" }
     val constraintLayout by lazy { "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}" }
     val junit by lazy { "junit:junit:${Versions.jUnit}" }
+    val dagger by lazy { "com.google.dagger:dagger:${Versions.dagger}" }
+    val daggerCompiler by lazy { "com.google.dagger:dagger-compiler:${Versions.dagger}" }
 
 }
