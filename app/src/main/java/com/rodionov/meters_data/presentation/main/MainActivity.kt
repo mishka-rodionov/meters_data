@@ -1,7 +1,8 @@
-package com.rodionov.meters_data
+package com.rodionov.meters_data.presentation.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.rodionov.meters_data.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
