@@ -3,7 +3,9 @@ package com.rodionov.domain.models
 import java.util.*
 
 data class Meter(
-    val meterValue: Double,
+    val id: String,
+    val serialNumber: String,
     val meterUnit: MeterUnits,
-    val date: Date
+    val dateOfManufacture: Date?,
+    val dateOfVerification: Date?
 )
