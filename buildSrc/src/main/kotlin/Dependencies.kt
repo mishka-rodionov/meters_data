@@ -16,6 +16,8 @@ object Versions {
     const val constraintLayout = "1.1.3"
     const val jUnit = "4.12"
     const val dagger = "2.41"
+    const val room = "2.4.2"
+    const val lifecycle = "2.4.1"
 }
 
 /**
@@ -38,5 +40,9 @@ object Deps {
     val junit by lazy { "junit:junit:${Versions.jUnit}" }
     val dagger by lazy { "com.google.dagger:dagger:${Versions.dagger}" }
     val daggerCompiler by lazy { "com.google.dagger:dagger-compiler:${Versions.dagger}" }
+    val room_runtime by lazy {"androidx.room:room-runtime:${Versions.room}"}
+    val room_compiler by lazy {"androidx.room:room-compiler:${Versions.room}"}
+    val lifecycle_extension by lazy { "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}" }
+    val lifecycle_viewmodel by lazy { "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}" }
 
 }
