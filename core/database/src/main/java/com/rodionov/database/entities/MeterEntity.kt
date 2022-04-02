@@ -2,6 +2,7 @@ package com.rodionov.database.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.rodionov.database.converters.DateConverter
 import com.rodionov.database.converters.DomainConverter
@@ -11,6 +12,7 @@ import java.util.*
 @Entity(tableName = "meters")
 @TypeConverters(value = [DateConverter::class, DomainConverter::class])
 data class MeterEntity(
+    @PrimaryKey
     @ColumnInfo(name = "id")
     val id: String,
     @ColumnInfo(name = "serial_number")
