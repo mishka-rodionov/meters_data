@@ -12,12 +12,14 @@ object Versions {
     const val kotlin = "1.5.0"
     const val timber = "4.7.1"
     const val appCompat = "1.3.0"
-    const val material = "1.3.0"
+    const val material = "1.2.0"
     const val constraintLayout = "1.1.3"
     const val jUnit = "4.12"
     const val dagger = "2.41"
     const val room = "2.4.2"
     const val lifecycle = "2.4.1"
+    const val gson = "2.8.6"
+    const val converter_gson = "2.6.1"
 }
 
 /**
@@ -44,5 +46,7 @@ object Deps {
     val room_compiler by lazy {"androidx.room:room-compiler:${Versions.room}"}
     val lifecycle_extension by lazy { "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}" }
     val lifecycle_viewmodel by lazy { "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}" }
+    val gson by lazy { "com.google.code.gson:gson:${Versions.gson}" }
+    val converter_gson by lazy { "com.squareup.retrofit2:converter-gson:${Versions.converter_gson}" }
 
 }

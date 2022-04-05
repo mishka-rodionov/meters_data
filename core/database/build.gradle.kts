@@ -48,4 +48,6 @@ dependencies {
     implementation(Deps.room_runtime)
     kapt(Deps.room_compiler)
 
+    implementation(Deps.gson)
+
 }

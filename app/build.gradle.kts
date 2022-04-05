@@ -40,7 +40,7 @@ android {
 
 dependencies {
 
-    implementation(project(":core:resources"))
+    api(project(":core:resources"))
     implementation(project(":feature:profile"))
 
     implementation("androidx.core:core-ktx:1.7.0")
