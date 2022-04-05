@@ -54,6 +54,10 @@ dependencies {
     implementation(Deps.dagger)
     kapt(Deps.daggerCompiler)
 
+    implementation(Deps.navigation_fragment)
+    implementation(Deps.navigation_fragment_ktx)
+    implementation(Deps.navigation_ui_ktx)
+
     //ViewBindingDelegate
     implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.3")
 }

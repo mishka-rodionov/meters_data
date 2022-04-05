@@ -18,8 +18,12 @@ object Versions {
     const val dagger = "2.41"
     const val room = "2.4.2"
     const val lifecycle = "2.4.1"
+
     const val gson = "2.8.6"
     const val converter_gson = "2.6.1"
+
+    const val navigation_fragment = "1.0.0"
+    const val nav = "2.3.4"
 }
 
 /**
@@ -46,7 +50,12 @@ object Deps {
     val room_compiler by lazy {"androidx.room:room-compiler:${Versions.room}"}
     val lifecycle_extension by lazy { "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}" }
     val lifecycle_viewmodel by lazy { "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}" }
+
     val gson by lazy { "com.google.code.gson:gson:${Versions.gson}" }
     val converter_gson by lazy { "com.squareup.retrofit2:converter-gson:${Versions.converter_gson}" }
+
+    val navigation_fragment by lazy { "android.arch.navigation:navigation-fragment:${Versions.navigation_fragment}" }
+    val navigation_fragment_ktx by lazy { "androidx.navigation:navigation-fragment-ktx:${Versions.nav}" }
+    val navigation_ui_ktx by lazy { "androidx.navigation:navigation-ui-ktx:${Versions.nav}" }
 
 }
