@@ -3,6 +3,8 @@
     <!--    Profile-->
     <string name="profile_personal_info">Personal information</string>
     <string name="profile_flat_list">Flat list</string>
+    <!--    Personal information-->
+    <string name="hint_first_name">First name</string>
     <!--    Content description-->
     <string name="content_description_profile_image">Profile image.</string>
 </resources>
