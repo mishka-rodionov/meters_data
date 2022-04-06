@@ -59,5 +59,5 @@ dependencies {
     implementation(Deps.navigation_ui_ktx)
 
     //ViewBindingDelegate
-    implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.3")
+    implementation(Deps.viewBindingDelegate)
 }

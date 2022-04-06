@@ -9,5 +9,23 @@
         android:id="@+id/profileFragment"
         android:name="com.rodionov.profile.presentation.profile.ProfileFragment"
         android:label="ProfileFragment"
-        tools:layout="@layout/fragment_profile"/>
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_flatListFragment"
+            app:destination="@id/flatListFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_personalInformationFragment"
+            app:destination="@id/personalInformationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalInformationFragment"
+        android:name="com.rodionov.profile.presentation.presonal_info.PersonalInformationFragment"
+        android:label="PersonalInformationFragment"
+        tools:layout="@layout/fragment_personal_information" />
+    <fragment
+        android:id="@+id/flatListFragment"
+        android:name="com.rodionov.profile.presentation.flat_list.FlatListFragment"
+        android:label="FlatListFragment"
+        tools:layout="@layout/fragment_flat_list" />
+
 </navigation>

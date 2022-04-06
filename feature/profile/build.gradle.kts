@@ -12,6 +12,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+        viewBinding.isEnabled = true
     }
 
     buildTypes {
@@ -48,4 +49,6 @@ dependencies {
     implementation(Deps.navigation_fragment)
     implementation(Deps.navigation_fragment_ktx)
     implementation(Deps.navigation_ui_ktx)
+
+    implementation(Deps.viewBindingDelegate)
 }

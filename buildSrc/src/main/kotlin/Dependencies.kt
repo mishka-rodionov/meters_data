@@ -24,6 +24,8 @@ object Versions {
 
     const val navigation_fragment = "1.0.0"
     const val nav = "2.3.4"
+
+    const val viewBindingDelegate = "1.5.3"
 }
 
 /**
@@ -57,5 +59,7 @@ object Deps {
     val navigation_fragment by lazy { "android.arch.navigation:navigation-fragment:${Versions.navigation_fragment}" }
     val navigation_fragment_ktx by lazy { "androidx.navigation:navigation-fragment-ktx:${Versions.nav}" }
     val navigation_ui_ktx by lazy { "androidx.navigation:navigation-ui-ktx:${Versions.nav}" }
+
+    val viewBindingDelegate by lazy { "com.github.kirich1409:viewbindingpropertydelegate-noreflection:${Versions.viewBindingDelegate}" }
 
 }
