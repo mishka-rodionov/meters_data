@@ -5,6 +5,44 @@
     android:layout_height="match_parent"
     android:padding="@dimen/padding_global">
 
+    <ImageView
+        android:id="@+id/ivProfileImage"
+        android:layout_width="@dimen/bottom_navigation"
+        android:layout_height="@dimen/bottom_navigation"
+        android:contentDescription="@string/content_description_profile_image"
+        android:src="@drawable/ic_account"
+        app:layout_constraintBottom_toTopOf="@id/guidelineProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvPersonalInfo"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/text_view_profile"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:gravity="center_vertical"
+        android:text="@string/profile_personal_info"
+        app:drawableEndCompat="@drawable/ic_next_black_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guidelineProfile" />
+
+    <TextView
+        android:id="@+id/tvFlatInfo"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/text_view_profile"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackgroundBorderless"
+        android:gravity="center_vertical"
+        android:text="@string/profile_flat_list"
+        app:drawableEndCompat="@drawable/ic_next_black_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPersonalInfo" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineProfile"
@@ -16,30 +54,6 @@
         app:layout_constraintGuide_percent="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvPersonalInfo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guidelineProfile"
-        android:text="fsdfsfsdf"
-        android:drawableEnd="@drawable/ic_next_black_24"
-         />
-
-    <TextView
-        android:id="@+id/tvFlatInfo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvPersonalInfo"
-        android:text="sdfdsfsd"
-        android:drawableEnd="@drawable/ic_next_black_24" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

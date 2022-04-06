@@ -1,4 +1,4 @@
-package com.rodionov.profile.presentation
+package com.rodionov.profile.presentation.profile
 
 import androidx.fragment.app.Fragment
 import com.rodionov.profile.R

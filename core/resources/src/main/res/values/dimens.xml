@@ -2,4 +2,5 @@
 <resources>
     <dimen name="padding_global">16dp</dimen>
     <dimen name="bottom_navigation">56dp</dimen>
+    <dimen name="text_view_profile">36dp</dimen>
 </resources>
