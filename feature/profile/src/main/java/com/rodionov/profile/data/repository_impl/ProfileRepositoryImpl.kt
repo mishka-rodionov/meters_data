@@ -1,9 +1,9 @@
 package com.rodionov.profile.data.repository_impl
 
 import com.rodionov.database.dao.UserDao
-import com.rodionov.database.entities.toModel
+import com.rodionov.database.mappers.toEntity
+import com.rodionov.database.mappers.toModel
 import com.rodionov.domain.models.User
-import com.rodionov.domain.models.toEntity
 import com.rodionov.profile.domain.repository.ProfileRepository
 import javax.inject.Inject
 

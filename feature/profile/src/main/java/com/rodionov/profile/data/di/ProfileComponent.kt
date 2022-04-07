@@ -3,7 +3,7 @@ package com.rodionov.profile.data.di
 import com.rodionov.profile.presentation.profile.ProfileFragment
 import dagger.Component
 
-@Component
+@Component(dependencies = [ProfileDeps::class])
 interface ProfileComponent {
 
     fun inject(profileFragment: ProfileFragment)
