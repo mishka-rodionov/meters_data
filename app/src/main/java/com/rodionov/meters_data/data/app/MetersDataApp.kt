@@ -6,11 +6,10 @@ import com.rodionov.meters_data.data.di.DaggerAppComponent
 
 class MetersDataApp : Application() {
 
-    lateinit var appComponent: AppComponent
+    val appComponent: AppComponent by lazy { DaggerAppComponent.builder().context(applicationContext).build() }
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = DaggerAppComponent.builder().context(applicationContext).build()
     }
 
 }

@@ -3,6 +3,7 @@ package com.rodionov.database.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.rodionov.domain.models.User
 
 @Entity(tableName = "users")
 data class UserEntity(
@@ -18,3 +19,5 @@ data class UserEntity(
     @ColumnInfo(name = "phone")
     val phone: String
 )
+
+fun UserEntity.toModel() = User(id, firstName, lastName, email, phone)

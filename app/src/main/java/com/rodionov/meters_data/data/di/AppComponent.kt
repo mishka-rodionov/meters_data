@@ -8,7 +8,7 @@ import dagger.Component
 import dagger.Module
 import dagger.Provides
 
-@Component(modules = [AppModule::class])
+@Component(modules = [AppModule::class, DatabaseModule::class])
 interface AppComponent {
     @Component.Builder
     interface Builder {
@@ -24,11 +24,6 @@ interface AppComponent {
 @Module
 class AppModule {
 
-    @Provides
-    fun provideDatabase(context: Context): MetersDataDatabase {
-        return Room.databaseBuilder(context, MetersDataDatabase::class.java, MetersDataDatabase.DATABASE_NAME)
-            .fallbackToDestructiveMigration()
-            .build()
-    }
+
 
 }
