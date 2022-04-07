@@ -41,6 +41,7 @@ android {
 dependencies {
 
     api(project(":core:resources"))
+    api(project(":core:database"))
     implementation(project(":feature:profile"))
 
     implementation("androidx.core:core-ktx:1.7.0")
@@ -57,6 +58,10 @@ dependencies {
     implementation(Deps.navigation_fragment)
     implementation(Deps.navigation_fragment_ktx)
     implementation(Deps.navigation_ui_ktx)
+
+    implementation(Deps.room_runtime)
+    implementation(Deps.room_ktx)
+    kapt(Deps.room_compiler)
 
     //ViewBindingDelegate
     implementation(Deps.viewBindingDelegate)

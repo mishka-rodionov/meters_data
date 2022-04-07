@@ -50,6 +50,7 @@ object Deps {
     val daggerCompiler by lazy { "com.google.dagger:dagger-compiler:${Versions.dagger}" }
     val room_runtime by lazy {"androidx.room:room-runtime:${Versions.room}"}
     val room_compiler by lazy {"androidx.room:room-compiler:${Versions.room}"}
+    val room_ktx by lazy { "androidx.room:room-ktx:${Versions.room}" }
     val lifecycle_extension by lazy { "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}" }
     val lifecycle_viewmodel by lazy { "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}" }
 

@@ -49,6 +49,7 @@ dependencies {
     kapt(Deps.daggerCompiler)
 
     implementation(Deps.room_runtime)
+    implementation(Deps.room_ktx)
     kapt(Deps.room_compiler)
 
     implementation(Deps.gson)

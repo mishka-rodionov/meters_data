@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -50,6 +51,10 @@ dependencies {
     implementation(Deps.navigation_fragment)
     implementation(Deps.navigation_fragment_ktx)
     implementation(Deps.navigation_ui_ktx)
+
+    implementation(Deps.room_runtime)
+    implementation(Deps.room_ktx)
+    kapt(Deps.room_compiler)
 
     implementation(Deps.viewBindingDelegate)
 }

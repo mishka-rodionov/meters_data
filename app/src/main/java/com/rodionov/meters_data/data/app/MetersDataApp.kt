@@ -1,16 +1,16 @@
 package com.rodionov.meters_data.data.app
 
 import android.app.Application
-import com.rodionov.meters_data.data.di.ApplicationComponent
-import com.rodionov.meters_data.data.di.DaggerApplicationComponent
+import com.rodionov.meters_data.data.di.AppComponent
+import com.rodionov.meters_data.data.di.DaggerAppComponent
 
-class MetersDataApp: Application() {
+class MetersDataApp : Application() {
 
-    lateinit var appComponent: ApplicationComponent
+    lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = DaggerApplicationComponent.create()
+        appComponent = DaggerAppComponent.builder().context(applicationContext).build()
     }
 
 }
