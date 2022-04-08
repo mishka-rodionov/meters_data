@@ -1,5 +1,6 @@
 package com.rodionov.profile.presentation.profile
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rodionov.domain.models.User
@@ -19,6 +20,7 @@ class ProfileViewModel(
     val user: StateFlow<User?> = _user.asStateFlow()
 
     fun getDefaultUser() {
+        Log.d("LOG_TAG", "getDefaultUser: ")
         viewModelScope.launch(Dispatchers.IO) { _user.value = profileRepository.getUser() }
     }
 
