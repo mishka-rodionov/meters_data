@@ -9,7 +9,7 @@ interface ProfileComponent {
 
     fun inject(profileFragment: ProfileFragment)
 
-    fun getViewModelFactory(): ProfileViewModelFactory
+//    fun getViewModelFactory(): ProfileViewModelFactory
 
     @Component.Builder
     interface Builder {
