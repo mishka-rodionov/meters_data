@@ -23,7 +23,7 @@ object Versions {
     const val converter_gson = "2.6.1"
 
     const val navigation_fragment = "1.0.0"
-    const val nav = "2.3.4"
+    const val nav = "2.4.2"
 
     const val viewBindingDelegate = "1.5.3"
 }
