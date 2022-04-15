@@ -26,6 +26,8 @@ object Versions {
     const val nav = "2.4.2"
 
     const val viewBindingDelegate = "1.5.3"
+
+    const val kotlin_coroutines = "1.3.9"
 }
 
 /**
@@ -63,5 +65,7 @@ object Deps {
     val navigation_ui_ktx by lazy { "androidx.navigation:navigation-ui-ktx:${Versions.nav}" }
 
     val viewBindingDelegate by lazy { "com.github.kirich1409:viewbindingpropertydelegate-noreflection:${Versions.viewBindingDelegate}" }
+
+    val coroutines by lazy {"org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlin_coroutines}"}
 
 }
