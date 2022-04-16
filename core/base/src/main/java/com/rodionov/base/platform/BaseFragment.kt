@@ -13,7 +13,7 @@ import kotlin.properties.Delegates
 
 open class BaseFragment(@LayoutRes val layout: Int) : Fragment(layout) {
 
-    protected val screenViewModel: BaseViewModel by Delegates.notNull()
+    open val screenViewModel: BaseViewModel by Delegates.notNull()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
