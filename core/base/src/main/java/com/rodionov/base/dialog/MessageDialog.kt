@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import by.kirich1409.viewbindingdelegate.viewBinding
+import com.rodionov.base.databinding.FragmentMessageDialogBinding
 
 class MessageDialog private constructor(
     private var title: String? = null,
@@ -11,12 +13,17 @@ class MessageDialog private constructor(
     private var buttonText: String? = null
 ) : CommonDialog<Unit>() {
 
+    private val binding: FragmentMessageDialogBinding by viewBinding(FragmentMessageDialogBinding::bind)
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
+    ): View {
+        binding.tvTitle.text = title
+        binding.tvMessage.text = message
+        binding.btnOk.text = buttonText
+        return binding.root
     }
 
     inner class Builder {

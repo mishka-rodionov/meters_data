@@ -49,4 +49,6 @@ dependencies {
     implementation(Deps.lifecycle_runtime)
 
     implementation(Deps.coroutines)
+
+    implementation(Deps.viewBindingDelegate)
 }
