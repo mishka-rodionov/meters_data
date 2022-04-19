@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.rodionov.base.navigation.NavigationEvent
+import com.rodionov.base.state.State
 import com.rodionov.utils.extensions.launchWithLifecycleStarted
 import kotlinx.coroutines.flow.onEach
 import kotlin.properties.Delegates
@@ -18,6 +19,7 @@ open class BaseFragment(@LayoutRes val layout: Int) : Fragment(layout) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         screenViewModel.navigate.onEach(::handleNavigationEvent).launchWithLifecycleStarted(lifecycleScope, lifecycle)
+        screenViewModel.state.onEach(::handleState).launchWithLifecycleStarted(lifecycleScope, lifecycle)
     }
 
     private fun handleNavigationEvent(navigationEvent: NavigationEvent) {
@@ -47,6 +49,14 @@ open class BaseFragment(@LayoutRes val layout: Int) : Fragment(layout) {
                     else -> findNavController().popBackStack()
                 }
             }
+        }
+    }
+
+    private fun handleState(state: State) {
+        when(state) {
+            is State.Loading -> {}
+            is State.Loaded -> {}
+            is State.Error -> {}
         }
     }
 
