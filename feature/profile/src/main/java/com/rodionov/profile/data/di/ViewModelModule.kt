@@ -18,12 +18,12 @@ class ViewModelModule {
     @IntoMap
     @ViewModelKey(ProfileViewModel::class)
     @Provides
-    fun provideProfileViewModel(profileRepository: ProfileRepository) = ProfileViewModel(profileRepository)
+    fun provideProfileViewModel(profileRepository: ProfileRepository): ViewModel = ProfileViewModel(profileRepository)
 
     @IntoMap
     @ViewModelKey(PersonalInformationViewModel::class)
     @Provides
-    fun providePersonalInformationViewModel(profileRepository: ProfileRepository) = PersonalInformationViewModel(profileRepository)
+    fun providePersonalInformationViewModel(profileRepository: ProfileRepository): ViewModel = PersonalInformationViewModel(profileRepository)
 
     @Provides
     fun provideProfileRepository(userDao: UserDao): ProfileRepository = ProfileRepositoryImpl(userDao)

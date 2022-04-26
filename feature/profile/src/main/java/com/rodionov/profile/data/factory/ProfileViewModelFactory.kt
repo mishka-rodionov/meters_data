@@ -9,17 +9,17 @@ import javax.inject.Inject
 import javax.inject.Provider
 
 class ProfileViewModelFactory @Inject constructor(
-//    val viewModelProviders: Map<Class<out ViewModel>, Provider<ViewModel>>
-    val profileRepository: ProfileRepository
+    val viewModelProviders: MutableMap<Class<out ViewModel>, Provider<ViewModel>>
+//    val profileRepository: ProfileRepository
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return when (modelClass) {
-            ProfileViewModel::class.java -> ProfileViewModel(profileRepository)
-            PersonalInformationViewModel::class.java -> PersonalInformationViewModel(profileRepository)
-            else -> throw IllegalArgumentException("Unknown ViewModel class")
-        } as T
-//        return viewModelProviders[modelClass]?.get() as T
-//            ?: throw IllegalArgumentException("Unknown ViewModel class")
+//        return when (modelClass) {
+//            ProfileViewModel::class.java -> ProfileViewModel(profileRepository)
+//            PersonalInformationViewModel::class.java -> PersonalInformationViewModel(profileRepository)
+//            else -> throw IllegalArgumentException("Unknown ViewModel class")
+//        } as T
+        return viewModelProviders[modelClass]?.get() as T
+            ?: throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

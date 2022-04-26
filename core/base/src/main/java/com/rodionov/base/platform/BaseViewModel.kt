@@ -8,6 +8,7 @@ import com.rodionov.base.navigation.NavigationEvent
 import com.rodionov.base.state.State
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 
@@ -15,6 +16,8 @@ open class BaseViewModel: ViewModel() {
 
     private val _navigate = MutableSharedFlow<NavigationEvent>()
     val navigate: SharedFlow<NavigationEvent> = _navigate.asSharedFlow()
+
+    val count: StateFlow<Int> = _navigate.subscriptionCount
 
     private val _state = MutableSharedFlow<State>()
     val state: SharedFlow<State> = _state.asSharedFlow()
@@ -24,6 +27,7 @@ open class BaseViewModel: ViewModel() {
             _navigate.emit(NavigationEvent.Navigate(
                 destination, bundle, navOptions
             ))
+
         }
     }
 
