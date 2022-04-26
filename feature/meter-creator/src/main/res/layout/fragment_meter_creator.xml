@@ -6,7 +6,6 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/mcvFlatCreator"
-        android:background=""
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/card_view_corner"

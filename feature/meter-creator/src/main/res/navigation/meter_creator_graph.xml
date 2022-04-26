@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/meter_creator_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/metersCenter"
+    app:startDestination="@id/meterCreatorFragment">
 
+    <fragment
+        android:id="@+id/meterCreatorFragment"
+        android:name="com.rodionov.meter_creator.presentation.meter_creator.MeterCreatorFragment"
+        android:label="MeterCreatorFragment"
+        tools:layout="@layout/fragment_meter_creator"/>
 </navigation>
