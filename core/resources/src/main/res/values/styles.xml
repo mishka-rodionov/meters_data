@@ -16,6 +16,14 @@
         <item name="android:textSize">@dimen/font_14</item>
     </style>
 
+    <style name="Text.12" parent="Text">
+        <item name="android:textSize">@dimen/font_12</item>
+    </style>
+
+    <style name="Text.12.Hint">
+        <item name="android:textColor">@color/colorHint</item>
+    </style>
+
     <style name="Text.18" parent="Text">
         <item name="android:textSize">@dimen/font_18</item>
     </style>

@@ -8,7 +8,7 @@
     <dimen name="button_height">48dp</dimen>
 
     <dimen name="card_view_corner">8dp</dimen>
-    <dimen name="card_view_border">2dp</dimen>
+    <dimen name="card_view_border">1dp</dimen>
 
     <dimen name="real_estate_object">64dp</dimen>
 </resources>
