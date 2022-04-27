@@ -9,19 +9,42 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/card_view_corner"
-        app:strokeWidth="@dimen/card_view_border"
-        app:strokeColor="@color/colorPrimary"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tvFLatCreatorTitle"
-            style="@style/Text.18"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Create flat." />
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/colorPrimary"
+        app:strokeWidth="@dimen/card_view_border">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/ivHouse"
+                android:layout_width="@dimen/real_estate_object"
+                android:layout_height="@dimen/real_estate_object"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_house"
+                app:tint="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/tvFLatCreatorTitle"
+                style="@style/Text.18"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_global"
+                android:layout_marginEnd="@dimen/padding_global"
+                app:layout_constraintStart_toEndOf="@id/ivHouse"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/label_real_estate" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
+
+    
 
 </androidx.constraintlayout.widget.ConstraintLayout>
