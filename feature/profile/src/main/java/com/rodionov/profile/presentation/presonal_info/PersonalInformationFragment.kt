@@ -3,7 +3,6 @@ package com.rodionov.profile.presentation.presonal_info
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
@@ -13,7 +12,7 @@ import com.rodionov.base.platform.BaseViewModel
 import com.rodionov.domain.models.User
 import com.rodionov.profile.R
 import com.rodionov.profile.data.di.ProfileComponentViewModel
-import com.rodionov.profile.data.factory.ProfileViewModelFactory
+import com.rodionov.profile.data.factory.ViewModelFactory
 import com.rodionov.profile.databinding.FragmentPersonalInformationBinding
 import dagger.Lazy
 import javax.inject.Inject
@@ -21,7 +20,7 @@ import javax.inject.Inject
 class PersonalInformationFragment : BaseFragment(R.layout.fragment_personal_information) {
 
     @Inject
-    lateinit var viewModelFactory: Lazy<ProfileViewModelFactory>
+    lateinit var viewModelFactory: Lazy<ViewModelFactory>
 
     private val binding: FragmentPersonalInformationBinding by viewBinding(
         FragmentPersonalInformationBinding::bind
