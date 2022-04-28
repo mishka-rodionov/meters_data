@@ -7,7 +7,7 @@ import com.rodionov.database.dao.UserDao
 import com.rodionov.database.entities.*
 
 @Database(
-    entities = [MeterEntity::class, MeterDataEntity::class, RoomEntity::class, FlatEntity::class, UserEntity::class],
+    entities = [MeterEntity::class, MeterDataEntity::class, FlatEntity::class, UserEntity::class],
     version = MetersDataDatabase.DATABASE_VERSION,
     exportSchema = false
 )

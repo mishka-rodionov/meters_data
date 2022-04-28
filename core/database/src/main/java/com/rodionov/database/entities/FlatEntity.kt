@@ -16,6 +16,6 @@ data class FlatEntity(
     val name: String,
     @ColumnInfo(name = "address")
     val address: String,
-    @ColumnInfo(name = "rooms")
-    val rooms: List<String>
+    @ColumnInfo(name = "meters")
+    val meters: List<String>
 )

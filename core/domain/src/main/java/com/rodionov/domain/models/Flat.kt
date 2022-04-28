@@ -1,8 +1,10 @@
 package com.rodionov.domain.models
 
+import java.util.*
+
 data class Flat(
-    val id: String,
+    val id: String = UUID.randomUUID().toString(),
     val name: String,
     val address: String,
-    val rooms: List<Room>
+    val meters: List<Meter>
 )

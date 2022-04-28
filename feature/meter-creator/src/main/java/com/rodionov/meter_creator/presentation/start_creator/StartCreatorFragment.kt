@@ -1,4 +1,4 @@
-package com.rodionov.meter_creator.presentation.meter_creator
+package com.rodionov.meter_creator.presentation.start_creator
 
 import androidx.fragment.app.viewModels
 import com.rodionov.base.platform.BaseFragment
