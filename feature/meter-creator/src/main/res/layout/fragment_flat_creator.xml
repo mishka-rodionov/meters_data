@@ -6,16 +6,15 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilFlatName"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        style="@style/TextInputLayoutOutlined"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etFlatName"
-            android:layout_width="0dp"
-            android:layout_height="0dp" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

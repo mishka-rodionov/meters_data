@@ -11,4 +11,6 @@
     <dimen name="card_view_border">1dp</dimen>
 
     <dimen name="real_estate_object">64dp</dimen>
+    <dimen name="text_input_layout_standard">56dp</dimen>
+
 </resources>

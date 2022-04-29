@@ -9,5 +9,14 @@
         android:id="@+id/meterCreatorFragment"
         android:name="com.rodionov.meter_creator.presentation.start_creator.StartCreatorFragment"
         android:label="MeterCreatorFragment"
-        tools:layout="@layout/fragment_meter_creator"/>
+        tools:layout="@layout/fragment_meter_creator">
+        <action
+            android:id="@+id/action_meterCreatorFragment_to_flatCreatorFragment"
+            app:destination="@id/flatCreatorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/flatCreatorFragment"
+        android:name="com.rodionov.meter_creator.presentation.flat_creator.FlatCreatorFragment"
+        android:label="FlatCreatorFragment"
+        tools:layout="@layout/fragment_flat_creator"/>
 </navigation>
