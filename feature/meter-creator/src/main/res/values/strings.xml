@@ -5,4 +5,8 @@
     <string name="label_real_estate_hint">Для того чтобы добавить счетчик нужно сначала создать объект недвижимости, в котором этот счетчик находится.</string>
     <string name="content_description_real_estate">content_description_real_estate</string>
 
+    <string name="helper_text_flat_address">Задайте адрес помещения, где установлены счетчики.</string>
+    <string name="helper_text_flat_name">Придумайте название для помещения.</string>
+    <string name="btn_save_flat">Создать помещение</string>
+
 </resources>

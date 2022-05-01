@@ -29,9 +29,11 @@
     </style>
 
     <style name="TextInputLayoutOutlined" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:layout_height">@dimen/text_input_layout_standard</item>
+        <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">0dp</item>
         <item name="hintEnabled">true</item>
+        <item name="helperTextEnabled">true</item>
+        <item name="helperTextTextColor">@color/colorPrimary</item>
         <item name="hintAnimationEnabled">true</item>
         <item name="hintTextColor">@color/colorHint</item>
         <item name="android:textAppearance">@style/Text</item>
@@ -39,6 +41,7 @@
 
 
     <style name="Button" parent="Widget.AppCompat.Button">
+        <item name="backgroundColor">@color/colorPrimary</item>
         <item name="android:layout_height">@dimen/button_height</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:textSize">@dimen/font_14</item>

@@ -2,8 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.Meters_data" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimary">@color/colorPrimaryNight</item>
         <item name="colorOnPrimary">@color/black</item>
+        <item name="android:textColor">@color/colorTextNight</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondaryVariant">@color/teal_200</item>
         <!-- Status bar color. -->
