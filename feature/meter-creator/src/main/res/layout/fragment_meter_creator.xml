@@ -1,76 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvRealEstate"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/padding_global_mini"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilMeterType"
+        style="@style/TextInputLayoutDropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mcvFlatCreator"
-        tools:itemCount="5" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/mcvFlatCreator"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:checkable="true"
-        android:clickable="true"
-        android:focusable="true"
-        app:cardCornerRadius="@dimen/card_view_corner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/colorPrimary"
-        app:strokeWidth="@dimen/card_view_border">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:padding="@dimen/padding_global_mini"
+        <AutoCompleteTextView
+            android:id="@+id/etMeterType"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageView
-                android:id="@+id/ivHouse"
-                android:layout_width="@dimen/real_estate_object"
-                android:layout_height="@dimen/real_estate_object"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_house"
-                app:tint="@color/colorPrimary"
-                android:contentDescription="@string/content_description_real_estate" />
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilMeterSerialNumber"
+        style="@style/TextInputLayoutOutlined"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilMeterType"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/padding_global_mini">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMeterSerialNumber"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
-            <TextView
-                android:id="@+id/tvFLatCreatorTitle"
-                style="@style/Text.18"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/padding_global"
-                android:layout_marginEnd="@dimen/padding_global"
-                android:text="@string/label_real_estate"
-                app:layout_constraintBottom_toTopOf="@id/tvFlatCreatorHint"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/ivHouse"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvFlatCreatorHint"
-                style="@style/Text.12.Hint"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/label_real_estate_hint"
-                app:layout_constraintStart_toStartOf="@id/tvFLatCreatorTitle"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvFLatCreatorTitle"
-                app:layout_constraintBottom_toBottomOf="parent"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

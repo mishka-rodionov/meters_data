@@ -3,20 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/metersCenter"
-    app:startDestination="@id/meterCreatorFragment">
+    app:startDestination="@id/startCreatorFragment">
 
     <fragment
-        android:id="@+id/meterCreatorFragment"
+        android:id="@+id/startCreatorFragment"
         android:name="com.rodionov.meter_creator.presentation.start_creator.StartCreatorFragment"
-        android:label="MeterCreatorFragment"
-        tools:layout="@layout/fragment_meter_creator">
+        android:label="StartCreatorFragment"
+        tools:layout="@layout/fragment_start_creator">
         <action
-            android:id="@+id/action_meterCreatorFragment_to_flatCreatorFragment"
+            android:id="@+id/action_startCreatorFragment_to_flatCreatorFragment"
             app:destination="@id/flatCreatorFragment" />
     </fragment>
     <fragment
         android:id="@+id/flatCreatorFragment"
         android:name="com.rodionov.meter_creator.presentation.flat_creator.FlatCreatorFragment"
         android:label="FlatCreatorFragment"
-        tools:layout="@layout/fragment_flat_creator"/>
+        tools:layout="@layout/fragment_flat_creator">
+        <action
+            android:id="@+id/action_flatCreatorFragment_to_meterCreatorFragment"
+            app:destination="@id/meterCreatorFragment"
+            app:popUpTo="@id/startCreatorFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/meterCreatorFragment"
+        android:name="com.rodionov.meter_creator.presentation.meter_creator.MeterCreatorFragment"
+        android:label="MeterCreatorFragment"
+        tools:layout="@layout/fragment_meter_creator"/>
 </navigation>
