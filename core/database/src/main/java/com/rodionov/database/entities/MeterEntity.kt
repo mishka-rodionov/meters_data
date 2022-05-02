@@ -16,6 +16,8 @@ data class MeterEntity(
     @PrimaryKey
     @ColumnInfo(name = "id")
     val id: String,
+    @ColumnInfo(name = "name")
+    val name: String,
     @ColumnInfo(name = "type")
     val type: MeterType,
     @ColumnInfo(name = "serial_number")

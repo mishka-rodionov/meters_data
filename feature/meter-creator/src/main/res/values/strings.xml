@@ -7,6 +7,9 @@
 
     <string name="helper_text_flat_address">Задайте адрес помещения, где установлены счетчики.</string>
     <string name="helper_text_flat_name">Придумайте название для помещения.</string>
+    <string name="helper_text_meter_name">Напишите название счетчика.</string>
+    <string name="helper_text_meter_serial_number">Введите серийный номер счетчика.</string>
+    <string name="helper_text_meter_type">Выберите тип счетчика.</string>
     <string name="btn_save_flat">Создать помещение</string>
 
 </resources>

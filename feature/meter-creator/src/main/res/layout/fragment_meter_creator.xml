@@ -7,6 +7,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilMeterType"
         style="@style/TextInputLayoutDropdown"
+        app:helperText="@string/helper_text_meter_type"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,14 +21,32 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilMeterSerialNumber"
         style="@style/TextInputLayoutOutlined"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tilMeterType"
+        android:layout_marginTop="@dimen/padding_global_mini"
+        app:helperText="@string/helper_text_meter_serial_number"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="@dimen/padding_global_mini">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilMeterType">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etMeterSerialNumber"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilMeterName"
+        style="@style/TextInputLayoutOutlined"
+        android:layout_marginTop="@dimen/padding_global_mini"
+        app:helperText="@string/helper_text_meter_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilMeterSerialNumber">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etMeterName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
