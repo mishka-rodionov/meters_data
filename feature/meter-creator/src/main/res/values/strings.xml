@@ -3,6 +3,7 @@
 
     <string name="label_real_estate">Создайте новый объект недвижимости.</string>
     <string name="label_real_estate_hint">Для того чтобы добавить счетчик нужно сначала создать объект недвижимости, в котором этот счетчик находится.</string>
+    <string name="label_day_of_data_send">Выберите день передачи показаний.</string>
     <string name="content_description_real_estate">content_description_real_estate</string>
 
     <string name="helper_text_flat_address">Задайте адрес помещения, где установлены счетчики.</string>

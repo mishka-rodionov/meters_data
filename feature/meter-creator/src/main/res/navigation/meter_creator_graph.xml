@@ -28,5 +28,15 @@
         android:id="@+id/meterCreatorFragment"
         android:name="com.rodionov.meter_creator.presentation.meter_creator.MeterCreatorFragment"
         android:label="MeterCreatorFragment"
-        tools:layout="@layout/fragment_meter_creator"/>
+        tools:layout="@layout/fragment_meter_creator">
+        <action
+            android:id="@+id/action_meterCreatorFragment_to_meterInfoFragment"
+            app:destination="@id/meterInfoFragment"
+            app:popUpTo="@id/startCreatorFragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/meterInfoFragment"
+        android:name="com.rodionov.meter_creator.presentation.meter_info.MeterInfoFragment"
+        android:label="MeterInfoFragment"
+        tools:layout="@layout/fragment_meter_info"/>
 </navigation>
