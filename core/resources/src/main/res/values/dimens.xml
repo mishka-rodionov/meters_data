@@ -13,4 +13,6 @@
     <dimen name="real_estate_object">64dp</dimen>
     <dimen name="text_input_layout_standard">56dp</dimen>
 
+    <dimen name="toolbar_height">64dp</dimen>
+
 </resources>
