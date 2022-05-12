@@ -91,7 +91,7 @@
         android:id="@+id/tilCompanyName"
         style="@style/TextInputLayoutOutlined"
         android:layout_marginTop="@dimen/padding_global_mini"
-        app:helperText="@string/helper_text_send_data_email"
+        app:helperText="@string/helper_text_company"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tilSendDataEmail">
