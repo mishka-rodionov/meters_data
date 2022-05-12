@@ -11,6 +11,9 @@
     <string name="helper_text_meter_name">Напишите название счетчика.</string>
     <string name="helper_text_meter_serial_number">Введите серийный номер счетчика.</string>
     <string name="helper_text_meter_type">Выберите тип счетчика.</string>
+    <string name="helper_text_pay_rate">Введите тариф на оплату услуг.</string>
+    <string name="helper_text_send_data_type">Выберите способ передачи показаний.</string>
+    <string name="helper_text_send_data_email">Введите Email на который отправлять показания.</string>
     <string name="btn_save_flat">Создать помещение</string>
     <string name="btn_save_meter">Сохранить данные</string>
 
