@@ -14,6 +14,8 @@ class FlatCreatorFragment : BaseFragment(R.layout.fragment_flat_creator) {
 
     override val screenViewModel: FlatCreatorViewModel by viewModels()
 
+    override val toolbarTitle = R.string.toolbar_title_flat_creator
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSaveFlat.setOnClickListener {

@@ -20,6 +20,8 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
 
     private val binding: FragmentProfileBinding by viewBinding(FragmentProfileBinding::bind)
 
+    override val toolbarTitle = R.string.toolbar_title_profile
+
     @Inject
     lateinit var viewModelFactory: Lazy<ViewModelFactory>
 

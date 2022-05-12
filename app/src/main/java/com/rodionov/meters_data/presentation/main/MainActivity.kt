@@ -14,10 +14,11 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.rodionov.base.platform.BaseActivity
 import com.rodionov.meters_data.R
 import com.rodionov.meters_data.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : BaseActivity(R.layout.activity_main) {
 
     private val binding: ActivityMainBinding by viewBinding(ActivityMainBinding::bind)
 
@@ -34,7 +35,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     private fun initToolbar(navController: NavController) {
-        setSupportActionBar(binding.mainToolbar)
+//        setSupportActionBar(binding.mainToolbar)
+        supportActionBar?.title = ""
         setupActionBarWithNavController(navController = navController, AppBarConfiguration(navGraph = navController.graph, drawerLayout = null))
     }
 

@@ -17,6 +17,8 @@ class StartCreatorFragment: BaseFragment(R.layout.fragment_start_creator) {
 
     override val screenViewModel: BaseViewModel by lazy { viewModel }
 
+    override val toolbarTitle = R.string.toolbar_title_start_creator
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.mcvFlatCreator.setOnClickListener {

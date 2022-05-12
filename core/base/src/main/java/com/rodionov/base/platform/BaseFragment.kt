@@ -24,17 +24,33 @@ open class BaseFragment(@LayoutRes val layout: Int) : Fragment(layout) {
 
     open val screenViewModel: BaseViewModel by Delegates.notNull()
 
-    val navigationController: NavController by lazy { findNavController() }
+    private val navigationController: NavController by lazy { findNavController() }
+
+    open val toolbarTitle: Int? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("LOG_TAG", "onCreate: name = ${this.javaClass.simpleName}")
 //        screenViewModel.count.onEach { Log.d("LOG_TAG", "onViewCreated: name = ${this.javaClass.simpleName}, count = $it") }.launchWithLifecycleStarted(lifecycleScope, lifecycle)
-        screenViewModel.navigate.onEach(::handleNavigationEvent).launchWithLifecycleStarted(lifecycleScope, lifecycle)
+        screenViewModel.navigate.onEach(::handleNavigationEvent)
+            .launchWithLifecycleStarted(lifecycleScope, lifecycle)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setToolbarTitle()
+    }
+
+    private fun setToolbarTitle() {
+        (requireActivity() as BaseActivity).supportActionBar?.title = toolbarTitle?.let { getString(it) }
     }
 
     private fun handleNavigationEvent(navigationEvent: NavigationEvent) {
-        Log.d("LOG_TAG", "handleNavigationEvent: fragment = ${this.javaClass.simpleName} $navigationEvent")
+        Log.d(
+            "LOG_TAG",
+            "handleNavigationEvent: fragment = ${this.javaClass.simpleName} $navigationEvent"
+        )
         when (navigationEvent) {
             is NavigationEvent.Navigate -> {
                 navigationController.navigate(
@@ -65,7 +81,7 @@ open class BaseFragment(@LayoutRes val layout: Int) : Fragment(layout) {
     }
 
     private fun handleState(state: State) {
-        when(state) {
+        when (state) {
             is State.Loading -> {}
             is State.Loaded -> {}
             is State.Error -> {}
