@@ -12,4 +12,5 @@
     <string name="label_flat_list_empty">Flat list is empty</string>
     <!--    Content description-->
     <string name="content_description_profile_image">Profile image.</string>
+    <string name="content_description_flat_image">Flat image.</string>
 </resources>

@@ -8,6 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="colorHotWater">#FF0000</color>
+    <color name="colorColdWater">#002AFF</color>
+    <color name="colorGas">#00BCD4</color>
+    <color name="colorLight">#FFFA00</color>
+
     <color name="colorText">#FF000000</color>
     <color name="colorTextNight">#A19E9E</color>
     <color name="colorHint">#C5C3C3</color>
