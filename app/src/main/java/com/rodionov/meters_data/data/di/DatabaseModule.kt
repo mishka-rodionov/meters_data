@@ -3,6 +3,7 @@ package com.rodionov.meters_data.data.di
 import android.content.Context
 import androidx.room.Room
 import com.rodionov.database.MetersDataDatabase
+import com.rodionov.database.dao.MeterDao
 import com.rodionov.database.dao.UserDao
 import dagger.Module
 import dagger.Provides
@@ -19,5 +20,8 @@ class DatabaseModule {
 
     @Provides
     fun provideUserDao(database: MetersDataDatabase): UserDao = database.userDao()
+
+    @Provides
+    fun provideMeterDao(database: MetersDataDatabase): MeterDao = database.meterDao()
 
 }

@@ -1,6 +1,7 @@
 package com.rodionov.meters_data.data.app
 
 import android.app.Application
+import com.rodionov.meter_creator.di.MeterCreatorDepsStore
 import com.rodionov.meters_data.data.di.AppComponent
 import com.rodionov.meters_data.data.di.DaggerAppComponent
 import com.rodionov.profile.data.di.ProfileDepsStore
@@ -12,6 +13,7 @@ class MetersDataApp : Application() {
     override fun onCreate() {
         super.onCreate()
         ProfileDepsStore.deps = appComponent
+        MeterCreatorDepsStore.deps = appComponent
     }
 
 }
