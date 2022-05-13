@@ -6,5 +6,5 @@ data class Flat(
     val id: String = UUID.randomUUID().toString(),
     val name: String,
     val address: String,
-    val meters: List<Meter>
+    val meters: List<Meter>? = null
 )

@@ -18,9 +18,21 @@ class FlatCreatorFragment : BaseFragment(R.layout.fragment_flat_creator) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setClearError()
         binding.btnSaveFlat.setOnClickListener {
-            screenViewModel.navigate(R.id.action_flatCreatorFragment_to_meterCreatorFragment)
+            if (validate()) {
+                screenViewModel.navigate(R.id.action_flatCreatorFragment_to_meterCreatorFragment)
+            }
         }
+    }
+
+    private fun validate(): Boolean {
+        return validateField(binding.tilFlatAddress) && validateField(binding.tilFlatName)
+    }
+
+    private fun setClearError() {
+        clearError(binding.tilFlatName)
+        clearError(binding.tilFlatAddress)
     }
 
 }

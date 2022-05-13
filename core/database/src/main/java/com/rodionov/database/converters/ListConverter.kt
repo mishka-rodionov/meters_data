@@ -6,14 +6,14 @@ import com.google.gson.Gson
 class ListConverter {
 
     @TypeConverter
-    fun fromPallets(pallets: List<String>): String {
+    fun fromList(list: List<String>): String {
         val gson = Gson()
-        return gson.toJson(pallets)
+        return gson.toJson(list)
     }
 
     @TypeConverter
-    fun toPallets(pallets: String): List<String> {
-        return Gson().fromJson(pallets, Array<String>::class.java).toList()
+    fun toList(list: String): List<String> {
+        return Gson().fromJson(list, Array<String>::class.java).toList()
     }
 
 }

@@ -41,6 +41,8 @@ class StartCreatorAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
             fun bind(flat: Flat) {
+                binding.tvFlatName.text = flat.name
+                binding.tvFlatAddress.text = flat.address
                 binding.ivFlatRemove.setOnClickListener { removeListener.invoke(flat.id) }
                 binding.ivFlatEdit.setOnClickListener { editListener.invoke(flat.id) }
             }

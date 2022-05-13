@@ -7,10 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.annotation.LayoutRes
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.textfield.TextInputLayout
 import com.rodionov.base.R
 import com.rodionov.base.navigation.NavigationEvent
 import com.rodionov.base.state.State
@@ -85,6 +87,27 @@ open class BaseFragment(@LayoutRes val layout: Int) : Fragment(layout) {
             is State.Loading -> {}
             is State.Loaded -> {}
             is State.Error -> {}
+        }
+    }
+
+    protected fun validateField(
+        til: TextInputLayout,
+        condition: Boolean = til.editText?.text.toString().trim().isEmpty(),
+        errorText: Int = com.rodionov.ui.R.string.error_empty_field
+    ): Boolean {
+        if (condition) {
+            til.error = getString(errorText)
+            return false
+        }
+        return true
+    }
+
+    protected fun clearError(til: TextInputLayout) {
+        til.editText?.doAfterTextChanged {
+            if (til.isErrorEnabled and !til.error.isNullOrEmpty()) {
+                til.error = ""
+                til.isErrorEnabled = false
+            }
         }
     }
 
