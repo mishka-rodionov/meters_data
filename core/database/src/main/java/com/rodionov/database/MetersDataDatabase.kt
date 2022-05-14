@@ -2,6 +2,7 @@ package com.rodionov.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.rodionov.database.dao.FlatDao
 import com.rodionov.database.dao.MeterDao
 import com.rodionov.database.dao.UserDao
 import com.rodionov.database.entities.*
@@ -15,6 +16,7 @@ abstract class MetersDataDatabase: RoomDatabase() {
 
     abstract fun meterDao() : MeterDao
     abstract fun userDao(): UserDao
+    abstract fun flatDao(): FlatDao
 
     companion object {
         const val DATABASE_VERSION = 1

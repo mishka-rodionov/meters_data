@@ -1,6 +1,7 @@
 package com.rodionov.meters_data.data.di
 
 import android.content.Context
+import com.rodionov.database.dao.FlatDao
 import com.rodionov.database.dao.MeterDao
 import com.rodionov.database.dao.UserDao
 import com.rodionov.meter_creator.di.MeterCreatorDeps
@@ -15,6 +16,7 @@ interface AppComponent : ProfileDeps, MeterCreatorDeps{
 
     override val userDao: UserDao
     override val meterDao: MeterDao
+    override val flatDao: FlatDao
 
     @Component.Builder
     interface Builder {

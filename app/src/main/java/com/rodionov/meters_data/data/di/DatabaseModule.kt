@@ -3,6 +3,7 @@ package com.rodionov.meters_data.data.di
 import android.content.Context
 import androidx.room.Room
 import com.rodionov.database.MetersDataDatabase
+import com.rodionov.database.dao.FlatDao
 import com.rodionov.database.dao.MeterDao
 import com.rodionov.database.dao.UserDao
 import dagger.Module
@@ -23,5 +24,8 @@ class DatabaseModule {
 
     @Provides
     fun provideMeterDao(database: MetersDataDatabase): MeterDao = database.meterDao()
+
+    @Provides
+    fun provideFlatDao(database: MetersDataDatabase): FlatDao = database.flatDao()
 
 }
