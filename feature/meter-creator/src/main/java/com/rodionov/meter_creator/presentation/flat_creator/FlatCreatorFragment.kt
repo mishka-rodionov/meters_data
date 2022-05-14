@@ -3,6 +3,7 @@ package com.rodionov.meter_creator.presentation.flat_creator
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.flowWithLifecycle
@@ -50,13 +51,14 @@ class FlatCreatorFragment : BaseFragment(R.layout.fragment_flat_creator) {
                 )
             }
         }
-        viewModel.flatCreated.onEach(::handleFlatCreated).launchWithLifecycleStarted(lifecycleScope, lifecycle)
+        viewModel.flatCreated.onEach(::handleFlatCreated)
+            .launchWithLifecycleStarted(lifecycleScope, lifecycle)
     }
 
-    private fun handleFlatCreated(isCreated: Boolean) {
-        if (isCreated) {
-            viewModel.navigate(R.id.action_flatCreatorFragment_to_meterCreatorFragment)
-        }
+    private fun handleFlatCreated(id: String) {
+        viewModel.navigate(
+            R.id.action_flatCreatorFragment_to_meterCreatorFragment, bundle = bundleOf(FLAT_ID to id)
+        )
     }
 
     private fun validate(): Boolean {
@@ -66,6 +68,10 @@ class FlatCreatorFragment : BaseFragment(R.layout.fragment_flat_creator) {
     private fun setClearError() {
         clearError(binding.tilFlatName)
         clearError(binding.tilFlatAddress)
+    }
+
+    companion object {
+        const val FLAT_ID = "FLAT_ID"
     }
 
 }

@@ -7,6 +7,8 @@ import com.rodionov.database.dao.FlatDao
 import com.rodionov.database.dao.MeterDao
 import com.rodionov.database.mappers.toEntity
 import com.rodionov.domain.models.Flat
+import com.rodionov.domain.models.Meter
+import com.rodionov.domain.models.MeterInfo
 import com.rodionov.meter_creator.domain.repository.CreatorRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -21,9 +23,26 @@ class CreatorRepositoryImpl(
 
     }
 
-    override suspend fun createFlat(flat: Flat,  onSuccess: (Unit) -> Unit, onState: (State) -> Unit) {
+    override suspend fun createFlat(flat: Flat,  onSuccess: (Flat) -> Unit, onState: (State) -> Unit) {
         execute(onSuccess = onSuccess, onState = onState) {
             flatDao.setFlatEntity(flat.toEntity())
+            flat
         }
+    }
+
+    override suspend fun createMeter(
+        meter: Meter,
+        onSuccess: (Meter) -> Unit,
+        onState: (State) -> Unit
+    ) {
+
+    }
+
+    override suspend fun createMeterInfo(
+        meterInfo: MeterInfo,
+        onSuccess: (MeterInfo) -> Unit,
+        onState: (State) -> Unit
+    ) {
+
     }
 }
