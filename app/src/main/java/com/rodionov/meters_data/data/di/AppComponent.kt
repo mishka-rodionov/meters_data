@@ -1,6 +1,7 @@
 package com.rodionov.meters_data.data.di
 
 import android.content.Context
+import com.rodionov.base.state.ErrorHandler
 import com.rodionov.database.dao.FlatDao
 import com.rodionov.database.dao.MeterDao
 import com.rodionov.database.dao.UserDao
@@ -10,6 +11,7 @@ import com.rodionov.profile.data.di.ProfileDeps
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
+import dagger.Provides
 
 @Component(modules = [AppModule::class, DatabaseModule::class])
 interface AppComponent : ProfileDeps, MeterCreatorDeps{
@@ -30,4 +32,9 @@ interface AppComponent : ProfileDeps, MeterCreatorDeps{
 }
 
 @Module
-class AppModule
+class AppModule {
+
+    @Provides
+    fun provideErrorHandler() = ErrorHandler()
+
+}

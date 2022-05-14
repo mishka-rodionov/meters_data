@@ -5,7 +5,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.get
+import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.rodionov.base.platform.BaseFragment
 import com.rodionov.base.platform.BaseViewModel
@@ -14,7 +16,9 @@ import com.rodionov.meter_creator.data.factory.MeterCreatorViewModelFactory
 import com.rodionov.meter_creator.databinding.FragmentFlatCreatorBinding
 import com.rodionov.meter_creator.di.CreatorViewModel
 import com.rodionov.meter_creator.presentation.meter_creator.MeterCreatorViewModel
+import com.rodionov.utils.extensions.launchWithLifecycleStarted
 import dagger.Lazy
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 class FlatCreatorFragment : BaseFragment(R.layout.fragment_flat_creator) {
@@ -40,8 +44,18 @@ class FlatCreatorFragment : BaseFragment(R.layout.fragment_flat_creator) {
         setClearError()
         binding.btnSaveFlat.setOnClickListener {
             if (validate()) {
-                screenViewModel.navigate(R.id.action_flatCreatorFragment_to_meterCreatorFragment)
+                viewModel.createFlat(
+                    name = binding.etFlatName.text.toString(),
+                    address = binding.etFlatAddress.text.toString()
+                )
             }
+        }
+        viewModel.flatCreated.onEach(::handleFlatCreated).launchWithLifecycleStarted(lifecycleScope, lifecycle)
+    }
+
+    private fun handleFlatCreated(isCreated: Boolean) {
+        if (isCreated) {
+            viewModel.navigate(R.id.action_flatCreatorFragment_to_meterCreatorFragment)
         }
     }
 
