@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="label_real_estate">Создайте новый объект недвижимости.</string>
+    <string name="label_real_estate_hint">Для того чтобы добавить счетчик нужно сначала создать объект недвижимости, в котором этот счетчик находится.</string>
+    <string name="label_day_of_data_send">Выберите день передачи показаний.</string>
+    <string name="content_description_real_estate">content_description_real_estate</string>
+
+    <string name="helper_text_flat_address">Задайте адрес помещения, где установлены счетчики.</string>
+    <string name="helper_text_flat_name">Придумайте название для помещения.</string>
+    <string name="helper_text_meter_name">Напишите название счетчика.</string>
+    <string name="helper_text_meter_serial_number">Введите серийный номер счетчика.</string>
+    <string name="helper_text_meter_type">Выберите тип счетчика.</string>
+    <string name="helper_text_pay_rate">Введите тариф на оплату услуг.</string>
+    <string name="helper_text_send_data_type">Выберите способ передачи показаний.</string>
+    <string name="helper_text_send_data_email">Введите Email на который отправлять показания.</string>
+    <string name="helper_text_company">Наименвание компании поставщика услуг.</string>
+    <string name="btn_save_flat">Создать помещение</string>
+    <string name="btn_save_meter">Сохранить данные</string>
+
+    <string name="toolbar_title_start_creator">Центр управления</string>
+    <string name="toolbar_title_flat_creator">Новое помещение</string>
+    <string name="toolbar_title_meter_creator">Новый счетчик</string>
+
+</resources>

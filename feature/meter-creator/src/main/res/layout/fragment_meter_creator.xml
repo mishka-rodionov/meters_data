@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/AppTheme">
+
+    <Button
+        android:id="@+id/btnSaveMeter"
+        style="@style/Button"
+        android:layout_marginTop="@dimen/padding_global_mini"
+        android:text="@string/btn_save_meter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scvMeterInfo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/btnSaveMeter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vpMeters">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <SeekBar
+                android:id="@+id/sbDay"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:max="28"
+                android:min="1"
+                android:progress="15"
+                android:thumbTint="@color/colorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDayOfDataSend" />
+
+            <TextView
+                android:id="@+id/tvDayOfDataSendLabel"
+                style="@style/Text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_global_mini"
+                android:text="@string/label_day_of_data_send"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilMeterName" />
+
+            <TextView
+                android:id="@+id/tvDayOfDataSend"
+                style="@style/BigText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDayOfDataSendLabel"
+                tools:text="25" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilMeterType"
+                style="@style/TextInputLayoutDropdown"
+                app:helperText="@string/helper_text_meter_type"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <AutoCompleteTextView
+                    android:id="@+id/etMeterType"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilMeterSerialNumber"
+                style="@style/TextInputLayoutOutlined"
+                android:layout_marginTop="@dimen/padding_global_mini"
+                app:helperText="@string/helper_text_meter_serial_number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilMeterType">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMeterSerialNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilMeterName"
+                style="@style/TextInputLayoutOutlined"
+                android:layout_marginTop="@dimen/padding_global_mini"
+                app:helperText="@string/helper_text_meter_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilMeterSerialNumber">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etMeterName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPayRate"
+                style="@style/TextInputLayoutOutlined"
+                android:layout_marginTop="@dimen/padding_global_mini"
+                app:helperText="@string/helper_text_pay_rate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sbDay">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPayRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="numberDecimal" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilSendDataType"
+                style="@style/TextInputLayoutDropdown"
+                app:helperText="@string/helper_text_send_data_type"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilPayRate">
+
+                <AutoCompleteTextView
+                    android:id="@+id/etSendDataType"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilSendDataEmail"
+                style="@style/TextInputLayoutOutlined"
+                android:layout_marginTop="@dimen/padding_global_mini"
+                app:helperText="@string/helper_text_send_data_email"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilSendDataType">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSendDataEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textEmailAddress" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilCompanyName"
+                style="@style/TextInputLayoutOutlined"
+                android:layout_marginTop="@dimen/padding_global_mini"
+                app:helperText="@string/helper_text_company"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tilSendDataEmail">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etCompanyName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textAutoComplete" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vpMeters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.rodionov.database.converters.DateConverter
 import com.rodionov.database.converters.DomainConverter
+import com.rodionov.domain.models.MeterType
 import com.rodionov.domain.models.MeterUnits
 import java.util.*
 
@@ -15,6 +16,10 @@ data class MeterEntity(
     @PrimaryKey
     @ColumnInfo(name = "id")
     val id: String,
+    @ColumnInfo(name = "name")
+    val name: String,
+    @ColumnInfo(name = "type")
+    val type: MeterType,
     @ColumnInfo(name = "serial_number")
     val serialNumber: String,
     @ColumnInfo(name = "meter_unit")

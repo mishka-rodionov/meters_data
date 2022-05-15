@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_global_micro">4dp</dimen>
+    <dimen name="padding_global_mini">8dp</dimen>
+    <dimen name="padding_global">16dp</dimen>
+    <dimen name="bottom_navigation">56dp</dimen>
+    <dimen name="text_view_profile">36dp</dimen>
+    <dimen name="edit_text_common">48dp</dimen>
+    <dimen name="button_height">56dp</dimen>
+
+    <dimen name="card_view_corner">8dp</dimen>
+    <dimen name="card_view_border">1dp</dimen>
+
+    <dimen name="real_estate_object">64dp</dimen>
+    <dimen name="text_input_layout_standard">56dp</dimen>
+
+    <dimen name="toolbar_height">64dp</dimen>
+
+</resources>

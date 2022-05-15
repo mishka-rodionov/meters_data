@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/AppTheme"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilFlatName"
+        style="@style/TextInputLayoutOutlined"
+        app:helperText="@string/helper_text_flat_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etFlatName"
+            android:hint="Введите название"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilFlatAddress"
+        style="@style/TextInputLayoutOutlined"
+        android:layout_marginTop="@dimen/padding_global_mini"
+        app:errorEnabled="true"
+        app:helperTextEnabled="true"
+        app:helperText="@string/helper_text_flat_address"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tilFlatName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etFlatAddress"
+            android:hint="Введите адрес"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnSaveFlat"
+        style="@style/Button"
+        android:layout_marginTop="@dimen/padding_global_mini"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilFlatAddress"
+        android:text="@string/btn_save_flat"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

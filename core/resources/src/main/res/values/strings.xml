@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">meters_data</string>
+    <!--    Profile-->
+    <string name="profile_personal_info">Personal information</string>
+    <string name="profile_flat_list">Flat list</string>
+    <string name="profile_button_save">Save</string>
+    <!--    Personal information-->
+    <string name="hint_first_name">First name</string>
+    <string name="hint_last_name">Last name</string>
+    <string name="hint_phone">Phone</string>
+    <!--    Flat information-->
+    <string name="label_flat_list_empty">Flat list is empty</string>
+    <!--    Content description-->
+    <string name="content_description_profile_image">Profile image.</string>
+    <string name="content_description_flat_image">Flat image.</string>
+    <!--    Error-->
+    <string name="error_empty_field">Поле должно быть заполнено.</string>
 </resources>

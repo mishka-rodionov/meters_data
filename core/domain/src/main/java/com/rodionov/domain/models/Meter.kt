@@ -4,6 +4,8 @@ import java.util.*
 
 data class Meter(
     val id: String,
+    val name: String,
+    val type: MeterType,
     val serialNumber: String,
     val meterUnit: MeterUnits,
     val dateOfManufacture: Date?,

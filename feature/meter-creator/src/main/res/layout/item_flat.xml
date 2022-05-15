@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/padding_global_micro"
+    android:layout_marginBottom="@dimen/padding_global_micro"
+    android:theme="@style/AppTheme">
+
+    <ImageView
+        android:id="@+id/ivFlatImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/content_description_flat_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_apartment" />
+
+    <TextView
+        android:id="@+id/tvFlatName"
+        style="@style/Text.18"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_global_mini"
+        app:layout_constraintEnd_toStartOf="@id/ivFlatRemove"
+        app:layout_constraintStart_toEndOf="@id/ivFlatImage"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Квартира на Арбате" />
+
+    <TextView
+        android:id="@+id/tvFlatAddress"
+        style="@style/Text.12.Hint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_global_mini"
+        app:layout_constraintEnd_toStartOf="@id/ivFlatRemove"
+        app:layout_constraintStart_toEndOf="@id/ivFlatImage"
+        app:layout_constraintTop_toBottomOf="@id/tvFlatName"
+        tools:text="г.Москва, ул. Новый Арбат, д.321/2, кв. 42" />
+
+    <TextView
+        android:id="@+id/tvHotWaterIndicator"
+        style="@style/Text.12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_global_micro"
+        android:layout_marginEnd="@dimen/padding_global_micro"
+        app:drawableStartCompat="@drawable/ic_water_drop_mini"
+        app:drawableTint="@color/colorHotWater"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivFlatImage"
+        tools:text="х2"/>
+
+    <TextView
+        android:id="@+id/tvColdWaterIndicator"
+        style="@style/Text.12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/padding_global_micro"
+        app:drawableStartCompat="@drawable/ic_water_drop_mini"
+        app:drawableTint="@color/colorColdWater"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvHotWaterIndicator"
+        app:layout_constraintTop_toBottomOf="@id/ivFlatImage"
+        tools:text="х2"/>
+
+    <TextView
+        android:id="@+id/tvGasIndicator"
+        style="@style/Text.12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/padding_global_micro"
+        app:drawableStartCompat="@drawable/ic_local_fire"
+        app:drawableTint="@color/colorGas"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvColdWaterIndicator"
+        app:layout_constraintTop_toBottomOf="@id/ivFlatImage"
+        tools:text="х2"/>
+
+    <TextView
+        android:id="@+id/tvLightIndicator"
+        style="@style/Text.12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/padding_global_micro"
+        app:drawableStartCompat="@drawable/ic_lightbulb"
+        app:drawableTint="@color/colorLight"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvGasIndicator"
+        app:layout_constraintTop_toBottomOf="@id/ivFlatImage"
+        tools:text="х2"/>
+
+    <ImageView
+        android:id="@+id/ivFlatRemove"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_global_micro"
+        android:contentDescription="@string/content_description_flat_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ivFlatEdit"
+        app:srcCompat="@drawable/ic_delete" />
+
+    <ImageView
+        android:id="@+id/ivFlatEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_global_micro"
+        android:contentDescription="@string/content_description_flat_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivFlatRemove"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/ic_edit" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
