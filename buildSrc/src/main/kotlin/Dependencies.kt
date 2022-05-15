@@ -28,6 +28,7 @@ object Versions {
     const val viewBindingDelegate = "1.5.3"
 
     const val kotlin_coroutines = "1.3.9"
+    const val viewPager2 = "1.0.0"
 }
 
 /**
@@ -67,5 +68,5 @@ object Deps {
     val viewBindingDelegate by lazy { "com.github.kirich1409:viewbindingpropertydelegate-noreflection:${Versions.viewBindingDelegate}" }
 
     val coroutines by lazy {"org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlin_coroutines}"}
-
+    val viewpager2 by lazy {"androidx.viewpager2:viewpager2:${Versions.viewPager2}"}
 }

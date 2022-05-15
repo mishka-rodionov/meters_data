@@ -65,4 +65,5 @@ dependencies {
     kapt(Deps.room_compiler)
 
     implementation(Deps.viewBindingDelegate)
+    implementation(Deps.viewpager2)
 }
