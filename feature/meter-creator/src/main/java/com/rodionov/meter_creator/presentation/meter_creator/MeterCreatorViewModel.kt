@@ -1,9 +1,30 @@
 package com.rodionov.meter_creator.presentation.meter_creator
 
+import androidx.lifecycle.viewModelScope
 import com.rodionov.base.platform.BaseViewModel
+import com.rodionov.domain.models.Meter
+import com.rodionov.domain.models.MeterType
 import com.rodionov.meter_creator.domain.repository.CreatorRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MeterCreatorViewModel(
     private val creatorRepository: CreatorRepository
-): BaseViewModel() {
+) : BaseViewModel() {
+
+    fun createAndSaveMeter(meterType: MeterType, serialNumber: String, meterName: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            creatorRepository.createMeter(
+                Meter(
+                    name = meterName,
+                    serialNumber = serialNumber,
+                    meterUnit = meterType.units,
+                    type = meterType,
+                ),
+                {},
+                ::handleState
+            )
+        }
+    }
+
 }

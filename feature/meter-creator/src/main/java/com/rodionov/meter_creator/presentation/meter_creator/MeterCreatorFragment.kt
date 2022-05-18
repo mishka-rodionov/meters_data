@@ -4,12 +4,15 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.ListAdapter
 import android.widget.SeekBar
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.rodionov.base.platform.BaseFragment
+import com.rodionov.domain.models.MeterType
 import com.rodionov.meter_creator.R
 import com.rodionov.meter_creator.data.factory.MeterCreatorViewModelFactory
 import com.rodionov.meter_creator.databinding.FragmentMeterCreatorBinding
@@ -38,7 +41,22 @@ class MeterCreatorFragment: BaseFragment(R.layout.fragment_meter_creator) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setClearError()
         Log.d("LOG_TAG", "onViewCreated: id = ${arguments?.getString(FLAT_ID)}")
+        binding.actvMeterType.setAdapter(
+            ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_dropdown_item_1line,
+                MeterType.values().map { it.meterName }
+            )
+        )
+        binding.actvSendDataType.setAdapter(
+            ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_dropdown_item_1line,
+                arrayOf("Email")
+            )
+        )
         binding.btnSaveMeter.setOnClickListener {
             viewModel.navigate(R.id.action_meterCreatorFragment_to_meterInfoFragment)
         }
@@ -62,8 +80,18 @@ class MeterCreatorFragment: BaseFragment(R.layout.fragment_meter_creator) {
 
             }
         )
+        binding.btnSaveMeter.setOnClickListener {
+            if (validate()) {
+                viewModel
+            }
+        }
     }
 
     private fun validate() = validateField(binding.tilMeterType) and validateField(binding.tilMeterName)
+
+    private fun setClearError() {
+        clearError(binding.tilMeterType)
+        clearError(binding.tilMeterName)
+    }
 
 }
