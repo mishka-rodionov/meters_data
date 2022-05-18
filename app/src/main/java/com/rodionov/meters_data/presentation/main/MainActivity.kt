@@ -35,7 +35,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     }
 
     private fun initToolbar(navController: NavController) {
-//        setSupportActionBar(binding.mainToolbar)
+        setSupportActionBar(binding.mainToolbar)
         supportActionBar?.title = ""
         setupActionBarWithNavController(navController = navController, AppBarConfiguration(navGraph = navController.graph, drawerLayout = null))
     }

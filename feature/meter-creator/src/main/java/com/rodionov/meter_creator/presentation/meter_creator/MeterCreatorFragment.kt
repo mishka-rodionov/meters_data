@@ -1,25 +1,40 @@
 package com.rodionov.meter_creator.presentation.meter_creator
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.SeekBar
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.rodionov.base.platform.BaseFragment
 import com.rodionov.meter_creator.R
+import com.rodionov.meter_creator.data.factory.MeterCreatorViewModelFactory
 import com.rodionov.meter_creator.databinding.FragmentMeterCreatorBinding
+import com.rodionov.meter_creator.di.CreatorViewModel
 import com.rodionov.meter_creator.presentation.flat_creator.FlatCreatorFragment.Companion.FLAT_ID
+import dagger.Lazy
+import javax.inject.Inject
 
 class MeterCreatorFragment: BaseFragment(R.layout.fragment_meter_creator) {
 
     private val binding: FragmentMeterCreatorBinding by viewBinding(FragmentMeterCreatorBinding::bind)
 
-    private val viewModel: MeterCreatorViewModel by viewModels()
+    @Inject
+    lateinit var viewModelFactory: Lazy<MeterCreatorViewModelFactory>
+
+    private val viewModel: MeterCreatorViewModel by viewModels { viewModelFactory.get() }
 
     override val screenViewModel by lazy { viewModel }
 
     override val toolbarTitle = R.string.toolbar_title_meter_creator
+
+    override fun onAttach(context: Context) {
+        ViewModelProvider(this).get<CreatorViewModel>().creatorComponent.inject(this)
+        super.onAttach(context)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -48,5 +63,7 @@ class MeterCreatorFragment: BaseFragment(R.layout.fragment_meter_creator) {
             }
         )
     }
+
+    private fun validate() = validateField(binding.tilMeterType) and validateField(binding.tilMeterName)
 
 }
