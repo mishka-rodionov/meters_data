@@ -5,6 +5,7 @@ import com.rodionov.base.state.ErrorHandler
 import com.rodionov.base.state.State
 import com.rodionov.database.dao.FlatDao
 import com.rodionov.database.dao.MeterDao
+import com.rodionov.database.dao.MeterInfoDao
 import com.rodionov.database.mappers.toEntity
 import com.rodionov.domain.models.Flat
 import com.rodionov.domain.models.Meter
@@ -16,6 +17,7 @@ import kotlinx.coroutines.withContext
 class CreatorRepositoryImpl(
     private val meterDao: MeterDao,
     private val flatDao: FlatDao,
+    private val meterInfoDao: MeterInfoDao
     errorHandler: ErrorHandler
 ) : BaseRepository(errorHandler), CreatorRepository {
 
@@ -47,7 +49,8 @@ class CreatorRepositoryImpl(
         onState: (State) -> Unit
     ) {
         execute(onSuccess = onSuccess, onState = onState) {
-
+            meterInfoDao.setMeterInfoEntity(meterInfoEntity = meterInfo.toEntity())
+            meterInfo // TODO think about change return value to real value from DB
         }
     }
 }
