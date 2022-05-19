@@ -90,19 +90,38 @@ class MeterCreatorFragment : BaseFragment(R.layout.fragment_meter_creator) {
                         .find { it.meterName == binding.actvMeterType.text.toString() }
                         ?: return@setOnClickListener,
                     serialNumber = binding.etMeterSerialNumber.text.toString(),
-                    meterName = binding.etMeterName.text.toString())
+                    meterName = binding.etMeterName.text.toString(),
+                    dataSendDay = binding.tvDayOfDataSend.text.toString().toInt(),
+                    payRate = binding.etPayRate.text.toString().toDouble(),
+                    dataSendType = binding.actvSendDataType.text.toString(),
+                    company = binding.etCompanyName.text.toString()
+                )
             }
         }
     }
 
     private fun validate(): Boolean {
-        return validateField(binding.tilMeterType) and validateField (binding.tilMeterName) and validateField (binding.tilMeterSerialNumber)
+        var result = true
+        listOf(
+            binding.tilMeterType,
+            binding.tilMeterName,
+            binding.tilMeterSerialNumber,
+            binding.tilPayRate,
+            binding.tilSendDataType,
+            binding.tilCompanyName
+        ).forEach {
+            result = result and validateField(it)
+        }
+        return result
     }
 
     private fun setClearError() {
         clearError(binding.tilMeterType)
         clearError(binding.tilMeterName)
         clearError(binding.tilMeterSerialNumber)
+        clearError(binding.tilPayRate)
+        clearError(binding.tilSendDataType)
+        clearError(binding.tilCompanyName)
     }
 
 }

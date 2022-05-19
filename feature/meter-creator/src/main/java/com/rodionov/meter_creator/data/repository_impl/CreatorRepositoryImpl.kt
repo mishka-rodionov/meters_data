@@ -17,7 +17,7 @@ import kotlinx.coroutines.withContext
 class CreatorRepositoryImpl(
     private val meterDao: MeterDao,
     private val flatDao: FlatDao,
-    private val meterInfoDao: MeterInfoDao
+    private val meterInfoDao: MeterInfoDao,
     errorHandler: ErrorHandler
 ) : BaseRepository(errorHandler), CreatorRepository {
 
