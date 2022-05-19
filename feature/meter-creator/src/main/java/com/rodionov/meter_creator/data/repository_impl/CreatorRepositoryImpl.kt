@@ -21,11 +21,17 @@ class CreatorRepositoryImpl(
     errorHandler: ErrorHandler
 ) : BaseRepository(errorHandler), CreatorRepository {
 
-    override suspend fun getFlats() {
-
+    override suspend fun getFlats(onSuccess: (List<Flat>) -> Unit, onState: (State) -> Unit) {
+        execute(onSuccess = onSuccess, onState = onState) {
+            
+        }
     }
 
-    override suspend fun createFlat(flat: Flat,  onSuccess: (Flat) -> Unit, onState: (State) -> Unit) {
+    override suspend fun createFlat(
+        flat: Flat,
+        onSuccess: (Flat) -> Unit,
+        onState: (State) -> Unit
+    ) {
         execute(onSuccess = onSuccess, onState = onState) {
             flatDao.setFlatEntity(flat.toEntity())
             flat

@@ -15,4 +15,6 @@
     <string name="content_description_flat_image">Flat image.</string>
     <!--    Error-->
     <string name="error_empty_field">Поле должно быть заполнено.</string>
+    <!--    Pattern-->
+    <string name="pattern_meter_indicator">x %s</string>
 </resources>
