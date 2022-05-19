@@ -86,6 +86,7 @@ class MeterCreatorFragment : BaseFragment(R.layout.fragment_meter_creator) {
         binding.btnSaveMeter.setOnClickListener {
             if (validate()) {
                 viewModel.createAndSaveMeter(
+                    flatId = arguments?.getString(FLAT_ID) ?: return@setOnClickListener, // TODO replace to real null check
                     meterType = MeterType.values()
                         .find { it.meterName == binding.actvMeterType.text.toString() }
                         ?: return@setOnClickListener,

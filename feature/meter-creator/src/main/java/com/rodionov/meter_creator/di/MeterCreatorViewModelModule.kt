@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.rodionov.meter_creator.domain.repository.CreatorRepository
 import com.rodionov.meter_creator.presentation.flat_creator.FlatCreatorViewModel
 import com.rodionov.meter_creator.presentation.meter_creator.MeterCreatorViewModel
+import com.rodionov.meter_creator.presentation.start_creator.StartCreatorViewModel
 import dagger.MapKey
 import dagger.Module
 import dagger.Provides
@@ -22,6 +23,11 @@ class MeterCreatorViewModelModule {
     @ViewModelKey(MeterCreatorViewModel::class)
     @Provides
     fun provideMeterCreatorViewModel(creatorRepository: CreatorRepository): ViewModel = MeterCreatorViewModel(creatorRepository)
+
+    @IntoMap
+    @ViewModelKey(StartCreatorViewModel::class)
+    @Provides
+    fun provideStartCreatorViewModel(creatorRepository: CreatorRepository): ViewModel = StartCreatorViewModel(creatorRepository)
 
 }
 

@@ -6,7 +6,10 @@ import com.rodionov.base.state.State
 import com.rodionov.database.dao.FlatDao
 import com.rodionov.database.dao.MeterDao
 import com.rodionov.database.dao.MeterInfoDao
+import com.rodionov.database.entities.FlatEntity
+import com.rodionov.database.entities.MeterEntity
 import com.rodionov.database.mappers.toEntity
+import com.rodionov.database.mappers.toModel
 import com.rodionov.domain.models.Flat
 import com.rodionov.domain.models.Meter
 import com.rodionov.domain.models.MeterInfo
@@ -23,7 +26,26 @@ class CreatorRepositoryImpl(
 
     override suspend fun getFlats(onSuccess: (List<Flat>) -> Unit, onState: (State) -> Unit) {
         execute(onSuccess = onSuccess, onState = onState) {
-            
+            flatDao.getFlats().map {
+                it.toModel { ids ->
+                    withContext(Dispatchers.IO) {
+                        meterDao.getMeterEntities(ids ?: emptyList()).map(MeterEntity::toModel)
+                    }
+                }
+            }
+        }
+    }
+
+    override suspend fun addMeterToFlat(
+        flatId: String,
+        meterId: String,
+        onSuccess: (Unit) -> Unit,
+        onState: (State) -> Unit
+    ) {
+        execute(onSuccess = onSuccess, onState = onState) {
+            val flat = flatDao.getFlat(flatId)
+            flat.meters?.add(meterId)
+            flatDao.setFlatEntity(flat)
         }
     }
 

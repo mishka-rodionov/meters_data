@@ -14,6 +14,7 @@ class MeterCreatorViewModel(
 ) : BaseViewModel() {
 
     fun createAndSaveMeter(
+        flatId: String,
         meterType: MeterType,
         serialNumber: String,
         meterName: String,
@@ -41,7 +42,12 @@ class MeterCreatorViewModel(
                 { createAndSaveMeterInfo(meterInfo = meterInfo) },
                 ::handleState
             )
-
+            creatorRepository.addMeterToFlat(
+                flatId = flatId,
+                meterId = meter.id,
+                onSuccess = {},
+                onState = ::handleState
+            )
         }
     }
 
