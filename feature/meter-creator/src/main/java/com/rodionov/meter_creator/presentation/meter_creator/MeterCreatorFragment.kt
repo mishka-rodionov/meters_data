@@ -21,7 +21,7 @@ import com.rodionov.meter_creator.presentation.flat_creator.FlatCreatorFragment.
 import dagger.Lazy
 import javax.inject.Inject
 
-class MeterCreatorFragment: BaseFragment(R.layout.fragment_meter_creator) {
+class MeterCreatorFragment : BaseFragment(R.layout.fragment_meter_creator) {
 
     private val binding: FragmentMeterCreatorBinding by viewBinding(FragmentMeterCreatorBinding::bind)
 
@@ -64,7 +64,10 @@ class MeterCreatorFragment: BaseFragment(R.layout.fragment_meter_creator) {
         binding.sbDay.setOnSeekBarChangeListener(
             object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                    Log.d("LOG_TAG", "onProgressChanged: progress = ${p0?.progress}, p1 = $p1, p2 = $p2")
+                    Log.d(
+                        "LOG_TAG",
+                        "onProgressChanged: progress = ${p0?.progress}, p1 = $p1, p2 = $p2"
+                    )
                     binding.tvDayOfDataSend.text = p1.toString()
                 }
 
@@ -82,16 +85,24 @@ class MeterCreatorFragment: BaseFragment(R.layout.fragment_meter_creator) {
         )
         binding.btnSaveMeter.setOnClickListener {
             if (validate()) {
-                viewModel
+                viewModel.createAndSaveMeter(
+                    meterType = MeterType.values()
+                        .find { it.meterName == binding.actvMeterType.text.toString() }
+                        ?: return@setOnClickListener,
+                    serialNumber = binding.etMeterSerialNumber.text.toString(),
+                    meterName = binding.etMeterName.text.toString())
             }
         }
     }
 
-    private fun validate() = validateField(binding.tilMeterType) and validateField(binding.tilMeterName)
+    private fun validate(): Boolean {
+        return validateField(binding.tilMeterType) and validateField (binding.tilMeterName) and validateField (binding.tilMeterSerialNumber)
+    }
 
     private fun setClearError() {
         clearError(binding.tilMeterType)
         clearError(binding.tilMeterName)
+        clearError(binding.tilMeterSerialNumber)
     }
 
 }

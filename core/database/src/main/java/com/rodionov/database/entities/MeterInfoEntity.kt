@@ -5,8 +5,8 @@ import androidx.room.Entity
 
 @Entity(tableName = "meter_info")
 data class MeterInfoEntity(
-    @ColumnInfo(name = "id")
-    val id: String,
+    @ColumnInfo(name = "meterId")
+    val meterId: String,
     @ColumnInfo(name = "dataSendDay")
     var dataSendDay: Int,
     @ColumnInfo(name = "payRate")
@@ -14,7 +14,7 @@ data class MeterInfoEntity(
     @ColumnInfo(name = "dataSendType")
     var dataSendType: String, //TODO: type must be enum
     @ColumnInfo(name = "email")
-    var email: String,
+    var email: String?,
     @ColumnInfo(name = "company")
     var company: String
 )

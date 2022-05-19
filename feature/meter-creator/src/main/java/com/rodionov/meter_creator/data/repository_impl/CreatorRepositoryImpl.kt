@@ -35,7 +35,10 @@ class CreatorRepositoryImpl(
         onSuccess: (Meter) -> Unit,
         onState: (State) -> Unit
     ) {
-
+        execute(onSuccess = onSuccess, onState = onState) {
+            meterDao.setMeterEntity(meterEntity = meter.toEntity())
+            meter // TODO think about change return value to real value from DB
+        }
     }
 
     override suspend fun createMeterInfo(
@@ -43,6 +46,8 @@ class CreatorRepositoryImpl(
         onSuccess: (MeterInfo) -> Unit,
         onState: (State) -> Unit
     ) {
+        execute(onSuccess = onSuccess, onState = onState) {
 
+        }
     }
 }
