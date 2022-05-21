@@ -13,7 +13,12 @@ class ListConverter {
 
     @TypeConverter
     fun toList(list: String?): List<String> {
-        return Gson().fromJson(list, Array<String>::class.java).toList()
+        return if (list.isNullOrEmpty()) {
+            emptyList()
+        } else {
+            Gson().fromJson(if (list == "null") "[]" else list, Array<String>::class.java)
+                .toList()
+        }
     }
 
 }

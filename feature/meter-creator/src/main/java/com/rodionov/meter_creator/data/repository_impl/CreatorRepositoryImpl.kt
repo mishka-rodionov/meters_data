@@ -1,5 +1,6 @@
 package com.rodionov.meter_creator.data.repository_impl
 
+import android.util.Log
 import com.rodionov.base.interaction.BaseRepository
 import com.rodionov.base.state.ErrorHandler
 import com.rodionov.base.state.State
@@ -39,13 +40,29 @@ class CreatorRepositoryImpl(
     override suspend fun addMeterToFlat(
         flatId: String,
         meterId: String,
-        onSuccess: (Unit) -> Unit,
+        onSuccess: (Meter) -> Unit,
         onState: (State) -> Unit
     ) {
         execute(onSuccess = onSuccess, onState = onState) {
-            val flat = flatDao.getFlat(flatId)
-            flat.meters?.add(meterId)
-            flatDao.setFlatEntity(flat)
+            try {
+                val flat = flatDao.getFlat(flatId)
+
+                if (flat.meters == null) {
+                    flat.meters = mutableListOf(meterId)
+                } else {
+                   val list = mutableListOf<String>()
+                    list.addAll(flat.meters ?: emptyList())
+                    list.add(meterId)
+                    flat.meters = list
+                }
+                flatDao.setFlatEntity(flat)
+            } catch (e: Exception) {
+                Log.d("LOG_TAG", "addMeterToFlat: ${e.message}")
+                e.stackTrace.forEach {
+                    Log.d("LOG_TAG", "addMeterToFlat: $it")
+                }
+            }
+            meterDao.getMeterEntity(meterId).toModel()
         }
     }
 

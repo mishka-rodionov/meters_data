@@ -10,6 +10,7 @@ import android.widget.SeekBar
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.rodionov.base.platform.BaseFragment
 import com.rodionov.domain.models.MeterType
@@ -18,7 +19,9 @@ import com.rodionov.meter_creator.data.factory.MeterCreatorViewModelFactory
 import com.rodionov.meter_creator.databinding.FragmentMeterCreatorBinding
 import com.rodionov.meter_creator.di.CreatorViewModel
 import com.rodionov.meter_creator.presentation.flat_creator.FlatCreatorFragment.Companion.FLAT_ID
+import com.rodionov.utils.extensions.launchWithLifecycleStarted
 import dagger.Lazy
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 class MeterCreatorFragment : BaseFragment(R.layout.fragment_meter_creator) {
@@ -99,6 +102,9 @@ class MeterCreatorFragment : BaseFragment(R.layout.fragment_meter_creator) {
                 )
             }
         }
+        viewModel.finish.onEach {
+            Log.d("LOG_TAG", "onViewCreated: viewModel.back ")
+            viewModel.back() }.launchWithLifecycleStarted(lifecycleScope, lifecycle)
     }
 
     private fun validate(): Boolean {

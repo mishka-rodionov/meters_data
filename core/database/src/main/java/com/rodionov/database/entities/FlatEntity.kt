@@ -17,5 +17,5 @@ data class FlatEntity(
     @ColumnInfo(name = "address")
     val address: String,
     @ColumnInfo(name = "meters")
-    val meters: MutableList<String>?
+    var meters: MutableList<String>?
 )
