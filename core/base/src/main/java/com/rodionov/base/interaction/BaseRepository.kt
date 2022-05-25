@@ -1,8 +1,10 @@
 package com.rodionov.base.interaction
 
+import android.util.Log
 import com.rodionov.base.state.ErrorHandler
 import com.rodionov.base.state.State
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 
 open class BaseRepository(val errorHandler: ErrorHandler) {
@@ -22,7 +24,8 @@ open class BaseRepository(val errorHandler: ErrorHandler) {
                 onSuccess.invoke(result)
                 onState.invoke(State.Loaded)
             }
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
+            Log.d("LOG_TAG", "execute: ")
             withContext(Dispatchers.Main) {
                 onState.invoke(State.Error(errorHandler.proceedException(e)))
             }

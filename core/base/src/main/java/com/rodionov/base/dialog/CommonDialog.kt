@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 
-open class CommonDialog<T>(private var handleCallback: ((T) -> Unit)? = null): DialogFragment() {
+open class CommonDialog<T>(var handleCallback: ((T) -> Unit)? = null): DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?) =
         super.onCreateDialog(savedInstanceState).apply {
@@ -17,7 +17,7 @@ open class CommonDialog<T>(private var handleCallback: ((T) -> Unit)? = null): D
         isCancelable = false
     }
 
-    fun show(fragmentManager: FragmentManager, tag: String, callback: ((T) -> Unit)? = null) {
+    fun show(fragmentManager: FragmentManager, tag: String? = null, callback: ((T) -> Unit)? = null) {
         handleCallback = callback
         show(fragmentManager, tag)
     }

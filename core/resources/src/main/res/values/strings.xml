@@ -17,4 +17,6 @@
     <string name="error_empty_field">Поле должно быть заполнено.</string>
     <!--    Pattern-->
     <string name="pattern_meter_indicator">x %s</string>
+    <!--    Dialog-->
+    <string name="btn_ok">OK</string>
 </resources>

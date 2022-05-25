@@ -1,5 +1,6 @@
 package com.rodionov.utils.extensions
 
+import android.util.Log
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleCoroutineScope
 import androidx.lifecycle.flowWithLifecycle
@@ -13,8 +14,12 @@ fun <T> Flow<T>.launchWhenStarted(lifecycleScope: LifecycleCoroutineScope) {
     }
 }
 
-fun <T> Flow<T>.launchWithLifecycleStarted(lifecycleScope: LifecycleCoroutineScope, lifecycle: Lifecycle) {
+fun <T> Flow<T>.launchWithLifecycleStarted(
+    lifecycleScope: LifecycleCoroutineScope,
+    lifecycle: Lifecycle
+) {
     lifecycleScope.launch {
+        Log.d("LOG_TAG", "launchWithLifecycleStarted:  ${this::class.simpleName} ${lifecycle.currentState}")
         this@launchWithLifecycleStarted.flowWithLifecycle(lifecycle = lifecycle).collect()
     }
 }

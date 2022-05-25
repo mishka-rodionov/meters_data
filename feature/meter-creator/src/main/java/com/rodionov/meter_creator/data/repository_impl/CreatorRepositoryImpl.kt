@@ -27,6 +27,7 @@ class CreatorRepositoryImpl(
 
     override suspend fun getFlats(onSuccess: (List<Flat>) -> Unit, onState: (State) -> Unit) {
         execute(onSuccess = onSuccess, onState = onState) {
+//            throw Throwable(message = "Test exception!")
             flatDao.getFlats().map {
                 it.toModel { ids ->
                     withContext(Dispatchers.IO) {

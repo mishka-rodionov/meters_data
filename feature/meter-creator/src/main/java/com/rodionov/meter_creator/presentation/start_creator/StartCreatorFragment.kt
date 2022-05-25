@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.rodionov.base.dialog.MessageDialog
 import com.rodionov.base.platform.BaseFragment
 import com.rodionov.base.platform.BaseViewModel
 import com.rodionov.domain.models.Flat
@@ -57,6 +58,7 @@ class StartCreatorFragment : BaseFragment(R.layout.fragment_start_creator) {
         }
         viewModel.flats.onEach(::handleFlats).launchWithLifecycleStarted(lifecycleScope, lifecycle)
         viewModel.getFlats()
+//        MessageDialog.Builder().title("title").message("Message").buttonText("text").build().show(childFragmentManager)
     }
 
     private fun handleFlats(flats: List<Flat>?) {
