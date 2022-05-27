@@ -58,7 +58,7 @@ class StartCreatorFragment : BaseFragment(R.layout.fragment_start_creator) {
         }
         viewModel.flats.onEach(::handleFlats).launchWithLifecycleStarted(lifecycleScope, lifecycle)
         viewModel.getFlats()
-        MessageDialog.Builder().title("title").message("Message").buttonText("text").build().show(childFragmentManager)
+//        MessageDialog.Builder().title("title").message("Message").buttonText("text").build().show(childFragmentManager)
     }
 
     private fun handleFlats(flats: List<Flat>?) {

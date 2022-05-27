@@ -2,7 +2,9 @@ package com.rodionov.meter_creator.di
 
 import androidx.lifecycle.ViewModel
 import com.rodionov.meter_creator.domain.repository.CreatorRepository
+import com.rodionov.meter_creator.domain.repository.EditorRepository
 import com.rodionov.meter_creator.presentation.flat_creator.FlatCreatorViewModel
+import com.rodionov.meter_creator.presentation.flat_editor.FlatEditorViewModel
 import com.rodionov.meter_creator.presentation.meter_creator.MeterCreatorViewModel
 import com.rodionov.meter_creator.presentation.start_creator.StartCreatorViewModel
 import dagger.MapKey
@@ -28,6 +30,11 @@ class MeterCreatorViewModelModule {
     @ViewModelKey(StartCreatorViewModel::class)
     @Provides
     fun provideStartCreatorViewModel(creatorRepository: CreatorRepository): ViewModel = StartCreatorViewModel(creatorRepository)
+
+    @IntoMap
+    @ViewModelKey(FlatEditorViewModel::class)
+    @Provides
+    fun provideFlatEditorViewModel(editorRepository: EditorRepository): ViewModel = FlatEditorViewModel(editorRepository)
 
 }
 
