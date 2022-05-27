@@ -12,7 +12,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.rodionov.base.dialog.QuestionDialog
 import com.rodionov.base.platform.BaseFragment
+import com.rodionov.domain.models.Meter
 import com.rodionov.domain.models.MeterType
 import com.rodionov.meter_creator.R
 import com.rodionov.meter_creator.data.factory.MeterCreatorViewModelFactory
@@ -102,9 +104,18 @@ class MeterCreatorFragment : BaseFragment(R.layout.fragment_meter_creator) {
                 )
             }
         }
-        viewModel.finish.onEach {
-            Log.d("LOG_TAG", "onViewCreated: viewModel.back ")
-            viewModel.back() }.launchWithLifecycleStarted(lifecycleScope, lifecycle)
+        viewModel.finish.onEach(::handleFinish).launchWithLifecycleStarted(lifecycleScope, lifecycle)
+    }
+
+    private fun handleFinish(meter: Meter) {
+        QuestionDialog.Builder().message(getString(R.string.question_meter_add)).build().show(childFragmentManager){
+            if(it) {
+                Log.d("LOG_TAG", "handleFinish: $it")
+            } else {
+                Log.d("LOG_TAG", "onViewCreated: viewModel.back ")
+                viewModel.back()
+            }
+        }
     }
 
     private fun validate(): Boolean {

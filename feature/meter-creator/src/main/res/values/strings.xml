@@ -22,4 +22,7 @@
     <string name="toolbar_title_flat_creator">Новое помещение</string>
     <string name="toolbar_title_meter_creator">Новый счетчик</string>
 
+    <string name="question_meter_add">Создать еще один счетчик?</string>
+
+
 </resources>
