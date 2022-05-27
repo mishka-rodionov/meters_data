@@ -3,6 +3,7 @@ package com.rodionov.meter_creator.presentation.start_creator
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
@@ -40,6 +41,7 @@ class StartCreatorFragment : BaseFragment(R.layout.fragment_start_creator) {
 
     private val adapter: StartCreatorAdapter by lazy {
         StartCreatorAdapter(
+            clickListener = ::handleFlatClick,
             removeListener = viewModel::removeFlatListener,
             editListener = viewModel::editFlatListener
         )
@@ -65,6 +67,17 @@ class StartCreatorFragment : BaseFragment(R.layout.fragment_start_creator) {
         if (flats != null) {
             adapter.flats = flats
         }
+    }
+
+    private fun handleFlatClick(flat: Flat) {
+        val arrayList = arrayListOf<String>().apply {
+            addAll(flat.meters?.map { it.id } ?: emptyList())
+        }
+        viewModel.navigate(R.id.action_startCreatorFragment_to_flatEditorFragment, bundleOf(FLAT_ID to arrayList))
+    }
+
+    companion object {
+        const val FLAT_ID = "FLAT_ID"
     }
 
 }

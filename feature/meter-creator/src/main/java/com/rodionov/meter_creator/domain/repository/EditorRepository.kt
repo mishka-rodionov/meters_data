@@ -5,6 +5,6 @@ import com.rodionov.domain.models.Meter
 
 interface EditorRepository {
 
-    suspend fun getMeters(onSuccess: (List<Meter>) -> Unit, onState: (State) -> Unit)
+    suspend fun getMeters(meterIds: List<String>, onSuccess: (List<Meter>) -> Unit, onState: (State) -> Unit)
 
 }

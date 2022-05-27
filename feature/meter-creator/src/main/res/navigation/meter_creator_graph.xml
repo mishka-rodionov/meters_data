@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_startCreatorFragment_to_flatCreatorFragment"
             app:destination="@id/flatCreatorFragment" />
+        <action
+            android:id="@+id/action_startCreatorFragment_to_flatEditorFragment"
+            app:destination="@id/flatEditorFragment" />
     </fragment>
     <fragment
         android:id="@+id/flatCreatorFragment"
@@ -22,7 +25,7 @@
         <action
             android:id="@+id/action_flatCreatorFragment_to_meterCreatorFragment"
             app:destination="@id/meterCreatorFragment"
-            app:popUpTo="@id/startCreatorFragment"/>
+            app:popUpTo="@id/startCreatorFragment" />
     </fragment>
     <fragment
         android:id="@+id/meterCreatorFragment"
@@ -32,11 +35,16 @@
         <action
             android:id="@+id/action_meterCreatorFragment_to_meterInfoFragment"
             app:destination="@id/meterInfoFragment"
-            app:popUpTo="@id/startCreatorFragment"/>
+            app:popUpTo="@id/startCreatorFragment" />
     </fragment>
     <fragment
         android:id="@+id/meterInfoFragment"
         android:name="com.rodionov.meter_creator.presentation.meter_info.MeterInfoFragment"
         android:label="MeterInfoFragment"
-        tools:layout="@layout/fragment_meter_info"/>
+        tools:layout="@layout/fragment_meter_info" />
+    <fragment
+        android:id="@+id/flatEditorFragment"
+        android:name="com.rodionov.meter_creator.presentation.flat_editor.FlatEditorFragment"
+        android:label="FlatEditorFragment"
+        tools:layout="@layout/fragment_flat_editor" />
 </navigation>

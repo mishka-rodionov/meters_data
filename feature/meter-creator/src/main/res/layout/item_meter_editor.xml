@@ -2,6 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingTop="@dimen/padding_global_micro"
+    android:paddingBottom="@dimen/padding_global_micro"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
@@ -9,12 +11,23 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ivDeleteMeterEditorItem"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center_vertical"
         android:drawablePadding="@dimen/padding_global_mini"
         app:drawableStartCompat="@drawable/ic_lightbulb"
         app:drawableEndCompat="@drawable/ic_delete" />
+
+    <ImageView
+        android:id="@+id/ivDeleteMeterEditorItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_delete"
+        android:contentDescription="@string/content_description_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

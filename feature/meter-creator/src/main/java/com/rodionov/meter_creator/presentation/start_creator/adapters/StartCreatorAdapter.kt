@@ -12,6 +12,7 @@ import com.rodionov.meter_creator.R
 import com.rodionov.meter_creator.databinding.ItemFlatBinding
 
 class StartCreatorAdapter(
+    private val clickListener: (Flat) -> Unit,
     private val removeListener: (String) -> Unit,
     private val editListener: (String) -> Unit
 ) :
@@ -47,6 +48,7 @@ class StartCreatorAdapter(
         fun bind(flat: Flat) {
             binding.tvFlatName.text = flat.name
             binding.tvFlatAddress.text = flat.address
+            binding.root.setOnClickListener { clickListener.invoke(flat) }
             binding.ivFlatRemove.setOnClickListener { removeListener.invoke(flat.id) }
             binding.ivFlatEdit.setOnClickListener { editListener.invoke(flat.id) }
             flat.meters?.let { meters ->
