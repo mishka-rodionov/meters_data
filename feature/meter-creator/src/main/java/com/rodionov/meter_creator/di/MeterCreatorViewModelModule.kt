@@ -6,6 +6,7 @@ import com.rodionov.meter_creator.domain.repository.EditorRepository
 import com.rodionov.meter_creator.presentation.flat_creator.FlatCreatorViewModel
 import com.rodionov.meter_creator.presentation.flat_editor.FlatEditorViewModel
 import com.rodionov.meter_creator.presentation.meter_creator.MeterCreatorViewModel
+import com.rodionov.meter_creator.presentation.meter_editor.MeterEditorViewModel
 import com.rodionov.meter_creator.presentation.start_creator.StartCreatorViewModel
 import dagger.MapKey
 import dagger.Module
@@ -35,6 +36,11 @@ class MeterCreatorViewModelModule {
     @ViewModelKey(FlatEditorViewModel::class)
     @Provides
     fun provideFlatEditorViewModel(editorRepository: EditorRepository): ViewModel = FlatEditorViewModel(editorRepository)
+
+    @IntoMap
+    @ViewModelKey(MeterEditorViewModel::class)
+    @Provides
+    fun provideMeterEditorViewModel(editorRepository: EditorRepository): ViewModel = MeterEditorViewModel(editorRepository)
 
 }
 

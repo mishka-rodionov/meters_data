@@ -23,7 +23,11 @@ class RepositoryModule {
     ): CreatorRepository = CreatorRepositoryImpl(meterDao, flatDao, meterInfoDao, errorHandler)
 
     @Provides
-    fun provideEditorRepository(meterDao: MeterDao, errorHandler: ErrorHandler): EditorRepository =
-        EditorRepositoryImpl(meterDao, errorHandler)
+    fun provideEditorRepository(
+        meterDao: MeterDao,
+        meterInfoDao: MeterInfoDao,
+        errorHandler: ErrorHandler
+    ): EditorRepository =
+        EditorRepositoryImpl(meterDao, meterInfoDao, errorHandler)
 
 }

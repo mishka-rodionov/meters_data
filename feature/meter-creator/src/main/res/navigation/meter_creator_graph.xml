@@ -46,5 +46,14 @@
         android:id="@+id/flatEditorFragment"
         android:name="com.rodionov.meter_creator.presentation.flat_editor.FlatEditorFragment"
         android:label="FlatEditorFragment"
-        tools:layout="@layout/fragment_flat_editor" />
+        tools:layout="@layout/fragment_flat_editor" >
+        <action
+            android:id="@+id/action_flatEditorFragment_to_meterEditorFragment"
+            app:destination="@id/meterEditorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/meterEditorFragment"
+        android:name="com.rodionov.meter_creator.presentation.meter_editor.MeterEditorFragment"
+        android:label="MeterEditorFragment"
+        tools:layout="@layout/fragment_meter_creator"/>
 </navigation>

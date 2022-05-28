@@ -28,6 +28,8 @@ class FlatEditorFragment : BaseFragment(R.layout.fragment_flat_editor) {
 
     private val binding: FragmentFlatEditorBinding by viewBinding(FragmentFlatEditorBinding::bind)
 
+    private val parentViewModel: CreatorViewModel by viewModels()
+
     @Inject
     lateinit var viewModelFactory: Lazy<MeterCreatorViewModelFactory>
 
@@ -39,7 +41,7 @@ class FlatEditorFragment : BaseFragment(R.layout.fragment_flat_editor) {
 
     override val toolbarTitle = R.string.toolbar_title_flat_editor
 
-    private val adapter: FlatEditorAdapter by lazy { FlatEditorAdapter() }
+    private val adapter: FlatEditorAdapter by lazy { FlatEditorAdapter(::saveMeter) }
 
     override fun onAttach(context: Context) {
         ViewModelProvider(this).get<CreatorViewModel>().creatorComponent.inject(this)
@@ -62,6 +64,11 @@ class FlatEditorFragment : BaseFragment(R.layout.fragment_flat_editor) {
     private fun handleMeters(meters: List<Meter>) {
         Log.d("LOG_TAG", "handleMeters: size = ${meters.size}")
         adapter.submitList(meters)
+    }
+
+    private fun saveMeter(meter: Meter) {
+        parentViewModel.meter = meter
+        viewModel.navigate(R.id.action_flatEditorFragment_to_meterEditorFragment)
     }
 
 

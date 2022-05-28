@@ -11,7 +11,7 @@ import com.rodionov.domain.models.MeterType
 import com.rodionov.meter_creator.R
 import com.rodionov.meter_creator.databinding.ItemMeterEditorBinding
 
-class FlatEditorAdapter :
+class FlatEditorAdapter(private val onClickListener: (Meter) -> Unit) :
     ListAdapter<Meter, FlatEditorAdapter.MeterEditorViewHolder>(DIFF_CALLBACK) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MeterEditorViewHolder {
@@ -32,6 +32,7 @@ class FlatEditorAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(meter: Meter) {
+            binding.root.setOnClickListener { onClickListener.invoke(meter) }
             binding.tvMeterEditorItem.text = meter.name
             when (meter.type) {
                 MeterType.GAS -> {
