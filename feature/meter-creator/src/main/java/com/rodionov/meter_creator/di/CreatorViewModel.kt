@@ -12,7 +12,7 @@ class CreatorViewModel: ViewModel() {
     }
 
     val creatorComponent = DaggerMeterCreatorComponent.builder().deps(MeterCreatorDepsStore.deps).build()
-    var meter: Meter by Delegates.notNull()
+//    var meter: Meter by Delegates.notNull()
 
     override fun onCleared() {
         Log.d("LOG_TAG", "onCleared: CreatorViewModel has been cleared")

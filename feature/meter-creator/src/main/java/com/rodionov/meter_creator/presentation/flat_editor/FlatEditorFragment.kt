@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
@@ -67,8 +68,12 @@ class FlatEditorFragment : BaseFragment(R.layout.fragment_flat_editor) {
     }
 
     private fun saveMeter(meter: Meter) {
-        parentViewModel.meter = meter
-        viewModel.navigate(R.id.action_flatEditorFragment_to_meterEditorFragment)
+//        parentViewModel.meter = meter
+        viewModel.navigate(R.id.action_flatEditorFragment_to_meterEditorFragment, bundleOf(METER to meter))
+    }
+
+    companion object {
+        const val METER = "METER"
     }
 
 

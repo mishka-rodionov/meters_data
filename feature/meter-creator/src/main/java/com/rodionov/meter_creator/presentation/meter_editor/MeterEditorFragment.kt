@@ -10,11 +10,13 @@ import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.rodionov.base.platform.BaseFragment
 import com.rodionov.base.platform.BaseViewModel
+import com.rodionov.domain.models.Meter
 import com.rodionov.domain.models.MeterInfo
 import com.rodionov.meter_creator.R
 import com.rodionov.meter_creator.data.factory.MeterCreatorViewModelFactory
 import com.rodionov.meter_creator.databinding.FragmentMeterCreatorBinding
 import com.rodionov.meter_creator.di.CreatorViewModel
+import com.rodionov.meter_creator.presentation.flat_editor.FlatEditorFragment.Companion.METER
 import com.rodionov.utils.extensions.launchWithLifecycleStarted
 import dagger.Lazy
 import kotlinx.coroutines.flow.onEach
@@ -23,8 +25,6 @@ import javax.inject.Inject
 class MeterEditorFragment: BaseFragment(R.layout.fragment_meter_creator) {
 
     private val binding: FragmentMeterCreatorBinding by viewBinding(FragmentMeterCreatorBinding::bind)
-
-    private val parentViewModel: CreatorViewModel by viewModels()
 
     @Inject
     lateinit var viewModelFactory: Lazy<MeterCreatorViewModelFactory>
@@ -44,18 +44,18 @@ class MeterEditorFragment: BaseFragment(R.layout.fragment_meter_creator) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.getMeterInfo(parentViewModel.meter.id)
+        viewModel.getMeterInfo(arguments?.getParcelable<Meter>(METER)?.id ?: "")
         viewModel.meterInfo.onEach(::handleMeterInfo).launchWithLifecycleStarted(lifecycleScope, lifecycle)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.actvMeterType.setText(parentViewModel.meter.type.meterName)
-        binding.etMeterSerialNumber.setText(parentViewModel.meter.serialNumber)
-        binding.etMeterName.setText(parentViewModel.meter.name)
+        binding.actvMeterType.setText(arguments?.getParcelable<Meter>(METER)?.type?.meterName)
+        binding.etMeterSerialNumber.setText(arguments?.getParcelable<Meter>(METER)?.serialNumber)
+        binding.etMeterName.setText(arguments?.getParcelable<Meter>(METER)?.name)
     }
 
-    private fun saveMeter()
+//    private fun saveMeter()
 
     private fun handleMeterInfo(meterInfo: MeterInfo) {
         binding.tvDayOfDataSend.text = meterInfo.dataSendDay.toString()
