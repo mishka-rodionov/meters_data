@@ -13,17 +13,46 @@ import kotlinx.coroutines.launch
 
 class MeterEditorViewModel(
     private val editorRepository: EditorRepository
-): BaseViewModel() {
+) : BaseViewModel() {
 
     private val _meterInfo = MutableSharedFlow<MeterInfo>()
     val meterInfo: SharedFlow<MeterInfo> = _meterInfo.asSharedFlow()
 
+    private val _isSaveMeterInfo = MutableSharedFlow<Boolean>()
+    val isSaveMeterInfo: SharedFlow<Boolean> = _isSaveMeterInfo.asSharedFlow()
+
     fun getMeterInfo(meterId: String) {
-        viewModelScope.launch { editorRepository.getMeterInfo(meterId = meterId, onSuccess = ::handleMeterInfo, onState = ::handleState) }
+        viewModelScope.launch {
+            editorRepository.getMeterInfo(
+                meterId = meterId,
+                onSuccess = ::handleMeterInfo,
+                onState = ::handleState
+            )
+        }
     }
 
     private fun handleMeterInfo(meterInfo: MeterInfo) {
         viewModelScope.launch { _meterInfo.emit(meterInfo) }
+    }
+
+    fun saveMeter(meter: Meter, meterInfo: MeterInfo) {
+        viewModelScope.launch(Dispatchers.IO) {
+            editorRepository.saveMeter(meter = meter, onSuccess = {
+                viewModelScope.launch(Dispatchers.IO) {
+                    saveMeterInfo(meterInfo)
+                }
+            }, onState = ::handleState)
+        }
+    }
+
+    fun saveMeterInfo(meterInfo: MeterInfo) {
+        viewModelScope.launch(Dispatchers.IO){
+            editorRepository.saveMeterInfo(meterInfo = meterInfo, onSuccess = ::handleMeterInfoSave , onState = ::handleState)
+        }
+    }
+
+    private fun handleMeterInfoSave(isSave: Boolean) {
+        viewModelScope.launch { _isSaveMeterInfo.emit(isSave) }
     }
 
 }

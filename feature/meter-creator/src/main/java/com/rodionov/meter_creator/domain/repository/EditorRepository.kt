@@ -11,5 +11,6 @@ interface EditorRepository {
     suspend fun getMeterInfo(meterId: String, onSuccess: (MeterInfo) -> Unit, onState: (State) -> Unit)
     suspend fun saveFlat(flat: Flat, onSuccess: (Boolean) -> Unit, onState: (State) -> Unit)
     suspend fun saveMeter(meter: Meter, onSuccess: (Boolean) -> Unit, onState: (State) -> Unit)
+    suspend fun saveMeterInfo(meterInfo: MeterInfo, onSuccess: (Boolean) -> Unit, onState: (State) -> Unit)
 
 }

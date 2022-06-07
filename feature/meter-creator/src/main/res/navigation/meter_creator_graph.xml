@@ -55,5 +55,11 @@
         android:id="@+id/meterEditorFragment"
         android:name="com.rodionov.meter_creator.presentation.meter_editor.MeterEditorFragment"
         android:label="MeterEditorFragment"
-        tools:layout="@layout/fragment_meter_creator"/>
+        tools:layout="@layout/fragment_meter_creator">
+        <action
+            android:id="@+id/action_meterEditorFragment_to_startCreatorFragment"
+            app:popUpTo="@id/startCreatorFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/startCreatorFragment" />
+    </fragment>
 </navigation>

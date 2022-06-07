@@ -7,6 +7,7 @@ import com.rodionov.base.state.State
 import com.rodionov.database.dao.MeterDao
 import com.rodionov.database.dao.MeterInfoDao
 import com.rodionov.database.entities.MeterEntity
+import com.rodionov.database.mappers.toEntity
 import com.rodionov.database.mappers.toModel
 import com.rodionov.domain.models.Flat
 import com.rodionov.domain.models.Meter
@@ -50,6 +51,20 @@ class EditorRepositoryImpl(
         onSuccess: (Boolean) -> Unit,
         onState: (State) -> Unit
     ) {
-        TODO("Not yet implemented")
+        execute(onSuccess = onSuccess, onState = onState) {
+            meterDao.setMeterEntity(meter.toEntity())
+            true
+        }
+    }
+
+    override suspend fun saveMeterInfo(
+        meterInfo: MeterInfo,
+        onSuccess: (Boolean) -> Unit,
+        onState: (State) -> Unit
+    ) {
+        execute(onSuccess = onSuccess, onState = onState) {
+            meterInfoDao.setMeterInfoEntity(meterInfo.toEntity())
+            true
+        }
     }
 }
