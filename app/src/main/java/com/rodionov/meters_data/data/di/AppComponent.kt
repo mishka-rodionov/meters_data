@@ -4,6 +4,7 @@ import android.content.Context
 import com.rodionov.base.state.ErrorHandler
 import com.rodionov.database.dao.FlatDao
 import com.rodionov.database.dao.MeterDao
+import com.rodionov.database.dao.MeterInfoDao
 import com.rodionov.database.dao.UserDao
 import com.rodionov.meter_creator.di.MeterCreatorDeps
 import com.rodionov.profile.data.factory.ViewModelFactory
@@ -19,6 +20,7 @@ interface AppComponent : ProfileDeps, MeterCreatorDeps{
     override val userDao: UserDao
     override val meterDao: MeterDao
     override val flatDao: FlatDao
+    override val meterInfoDao: MeterInfoDao
 
     @Component.Builder
     interface Builder {

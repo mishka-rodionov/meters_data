@@ -14,6 +14,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
 import com.rodionov.base.R
+import com.rodionov.base.dialog.MessageDialog
 import com.rodionov.base.navigation.NavigationEvent
 import com.rodionov.base.state.State
 import com.rodionov.utils.extensions.launchWhenStarted
@@ -37,6 +38,7 @@ open class BaseFragment(@LayoutRes val layout: Int) : Fragment(layout) {
 //        screenViewModel.count.onEach { Log.d("LOG_TAG", "onViewCreated: name = ${this.javaClass.simpleName}, count = $it") }.launchWithLifecycleStarted(lifecycleScope, lifecycle)
         screenViewModel.navigate.onEach(::handleNavigationEvent)
             .launchWithLifecycleStarted(lifecycleScope, lifecycle)
+        screenViewModel.state.onEach(::handleState).launchWithLifecycleStarted(lifecycleScope, lifecycle)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -84,9 +86,16 @@ open class BaseFragment(@LayoutRes val layout: Int) : Fragment(layout) {
 
     private fun handleState(state: State) {
         when (state) {
-            is State.Loading -> {}
-            is State.Loaded -> {}
-            is State.Error -> {}
+            is State.Loading -> {
+                Log.d("LOG_TAG", "handleState: Loading")
+            }
+            is State.Loaded -> {
+                Log.d("LOG_TAG", "handleState: Loaded")
+            }
+            is State.Error -> {
+                Log.d("LOG_TAG", "handleState: Error")
+                MessageDialog.Builder().title("Ошибка").message(state.failure.toString()).build().show(childFragmentManager)
+            }
         }
     }
 

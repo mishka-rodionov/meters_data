@@ -27,9 +27,10 @@ open class BaseViewModel: ViewModel() {
             _navigate.emit(NavigationEvent.Navigate(
                 destination, bundle, navOptions
             ))
-
         }
     }
+
+    fun back() { viewModelScope.launch { _navigate.emit(NavigationEvent.Back()) } }
 
     fun handleState(state: State) {
         viewModelScope.launch { _state.emit(state) }
