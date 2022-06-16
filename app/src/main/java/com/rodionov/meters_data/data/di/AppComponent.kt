@@ -9,6 +9,7 @@ import com.rodionov.database.dao.UserDao
 import com.rodionov.meter_creator.di.MeterCreatorDeps
 import com.rodionov.profile.data.factory.ViewModelFactory
 import com.rodionov.profile.data.di.ProfileDeps
+import com.rodionov.utils.repositories.SharedPreferencesRepository
 import dagger.BindsInstance
 import dagger.Component
 import dagger.Module
@@ -21,6 +22,7 @@ interface AppComponent : ProfileDeps, MeterCreatorDeps{
     override val meterDao: MeterDao
     override val flatDao: FlatDao
     override val meterInfoDao: MeterInfoDao
+
 
     @Component.Builder
     interface Builder {
@@ -38,5 +40,8 @@ class AppModule {
 
     @Provides
     fun provideErrorHandler() = ErrorHandler()
+
+    @Provides
+    fun provideSharedPreferences(context: Context) = SharedPreferencesRepository(context)
 
 }

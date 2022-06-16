@@ -43,6 +43,7 @@ dependencies {
     api(project(":core:resources"))
     api(project(":core:database"))
     api(project(":core:base"))
+    api(project(":core:utils"))
     implementation(project(":feature:profile"))
     implementation(project(":feature:meter-creator"))
 
