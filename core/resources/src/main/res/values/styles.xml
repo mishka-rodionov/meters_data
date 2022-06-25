@@ -41,6 +41,14 @@
         <item name="android:textSize">@dimen/font_18</item>
     </style>
 
+    <style name="Text.24" parent="Text">
+        <item name="android:textSize">@dimen/font_24</item>
+    </style>
+
+    <style name="Text.24.Bold">
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="TextInputLayoutOutlined" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">0dp</item>

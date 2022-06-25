@@ -1,13 +1,14 @@
 package com.rodionov.utils.repositories
 
 import android.content.Context
+import android.content.SharedPreferences
 import javax.inject.Inject
 
 class SharedPreferencesRepository @Inject constructor(
     private val context: Context
 ) {
 
-    val sharedPreferences = context.getSharedPreferences(SHARED_FILE_NAME, Context.MODE_PRIVATE)
+    private val sharedPreferences: SharedPreferences = context.getSharedPreferences(SHARED_FILE_NAME, Context.MODE_PRIVATE)
 
     fun putUserId(usedId: String) {
         with(sharedPreferences.edit()) {
