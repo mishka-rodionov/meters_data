@@ -2,6 +2,8 @@ package com.rodionov.meters_data.presentation.main
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -12,9 +14,10 @@ import androidx.navigation.ui.setupWithNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.rodionov.base.platform.BaseActivity
 import com.rodionov.meters_data.R
-import com.rodionov.meters_data.data.di.MainViewModelFactory
+//import com.rodionov.meters_data.data.di.MainViewModelFactory
 import com.rodionov.meters_data.databinding.ActivityMainBinding
 import com.rodionov.utils.extensions.launchWithLifecycleStarted
+import com.rodionov.utils.repositories.SharedPreferencesRepository
 import dagger.Lazy
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -23,11 +26,16 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
 
     private val binding: ActivityMainBinding by viewBinding(ActivityMainBinding::bind)
 
-    @Inject
-    lateinit var mainViewModelFactory: Lazy<MainViewModelFactory>
+//    @Inject
+//    lateinit var mainViewModelFactory: Lazy<MainViewModelFactory>
 
     private val viewModel: MainViewModel by viewModels {
-        mainViewModelFactory.get()
+//        mainViewModelFactory.get()
+        object : ViewModelProvider.Factory {
+            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+                return MainViewModel(SharedPreferencesRepository(applicationContext)) as T
+            }
+        }
     }
 
 //    override val screenViewModel: BaseViewModel by lazy { viewModel }
