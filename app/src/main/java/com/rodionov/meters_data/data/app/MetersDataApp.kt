@@ -1,6 +1,7 @@
 package com.rodionov.meters_data.data.app
 
 import android.app.Application
+import com.rodionov.login.di.LoginDepsStore
 import com.rodionov.meter_creator.di.MeterCreatorDepsStore
 import com.rodionov.meters_data.data.di.AppComponent
 import com.rodionov.meters_data.data.di.DaggerAppComponent
@@ -14,6 +15,7 @@ class MetersDataApp : Application() {
         super.onCreate()
         ProfileDepsStore.deps = appComponent
         MeterCreatorDepsStore.deps = appComponent
+        LoginDepsStore.deps = appComponent
     }
 
 }

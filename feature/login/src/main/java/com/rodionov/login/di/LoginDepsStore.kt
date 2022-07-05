@@ -4,6 +4,6 @@ import kotlin.properties.Delegates
 
 object LoginDepsStore {
 
-    val loginDeps: LoginDeps by Delegates.notNull()
+    var deps: LoginDeps by Delegates.notNull()
 
 }
