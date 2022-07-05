@@ -2,7 +2,6 @@ package com.rodionov.meters_data.presentation.main
 
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -12,9 +11,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.rodionov.base.platform.BaseActivity
-import com.rodionov.base.platform.BaseViewModel
 import com.rodionov.meters_data.R
-import com.rodionov.meters_data.data.di.ViewModelFactory
+import com.rodionov.meters_data.data.di.MainViewModelFactory
 import com.rodionov.meters_data.databinding.ActivityMainBinding
 import com.rodionov.utils.extensions.launchWithLifecycleStarted
 import dagger.Lazy
@@ -26,10 +24,10 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     private val binding: ActivityMainBinding by viewBinding(ActivityMainBinding::bind)
 
     @Inject
-    lateinit var viewModelFactory: Lazy<ViewModelFactory>
+    lateinit var mainViewModelFactory: Lazy<MainViewModelFactory>
 
     private val viewModel: MainViewModel by viewModels {
-        viewModelFactory.get()
+        mainViewModelFactory.get()
     }
 
 //    override val screenViewModel: BaseViewModel by lazy { viewModel }
