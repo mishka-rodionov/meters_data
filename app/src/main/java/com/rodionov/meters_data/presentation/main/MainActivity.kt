@@ -1,6 +1,7 @@
 package com.rodionov.meters_data.presentation.main
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -16,6 +17,7 @@ import com.rodionov.base.platform.BaseActivity
 import com.rodionov.meters_data.R
 //import com.rodionov.meters_data.data.di.MainViewModelFactory
 import com.rodionov.meters_data.databinding.ActivityMainBinding
+import com.rodionov.utils.extensions.launchWithLifecycleCreated
 import com.rodionov.utils.extensions.launchWithLifecycleStarted
 import com.rodionov.utils.repositories.SharedPreferencesRepository
 import dagger.Lazy
@@ -43,19 +45,26 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        viewModel.toLogin.onEach(::handleToLogin).launchWithLifecycleCreated(this.lifecycleScope, this.lifecycle)
+        viewModel.test.onEach { Log.d("LOG_TAG", "onCreate: test") }.launchWithLifecycleCreated(this.lifecycleScope, this.lifecycle)
+        viewModel.checkFirstStart()
+        viewModel.test()
+
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.mainContainer) as NavHostFragment
         val navController = navHostFragment.navController
-        viewModel.toLogin.onEach(::handleToLogin).launchWithLifecycleStarted(lifecycleScope, lifecycle)
-        viewModel.checkFirstStart()
         initToolbar(navController)
         binding.mainBottomNavigation
             .setupWithNavController(navController)
     }
+    
+    
 
     private fun handleToLogin(toLogin: Boolean) {
+        Log.d("LOG_TAG", "handleToLogin: $toLogin")
         if (toLogin) {
-            viewModel.navigate(R.id.loginFragment)
+            viewModel.navigate(R.id.loginFlow)
         }
     }
 
