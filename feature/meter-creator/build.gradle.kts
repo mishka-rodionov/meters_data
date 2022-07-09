@@ -43,11 +43,11 @@ dependencies {
     implementation(project(":core:base"))
     implementation(project(":core:utils"))
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
+    implementation(Deps.androidxCoreKtx)
+    implementation(Deps.appCompat)
     implementation(Deps.materialDesign)
-    implementation("androidx.navigation:navigation-fragment-ktx:2.4.2")
-    implementation("androidx.navigation:navigation-ui-ktx:2.4.2")
+//    implementation(Deps.navigation_fragment)
+    implementation(Deps.navigation_fragment_ktx)
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
@@ -57,7 +57,7 @@ dependencies {
     implementation(Deps.dagger)
     kapt(Deps.daggerCompiler)
 
-    implementation(Deps.navigation_fragment)
+//    implementation(Deps.navigation_fragment)
     implementation(Deps.navigation_fragment_ktx)
     implementation(Deps.navigation_ui_ktx)
 

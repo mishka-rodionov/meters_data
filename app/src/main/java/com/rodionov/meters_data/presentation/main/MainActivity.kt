@@ -34,7 +34,7 @@ class MainActivity : BaseActivity(R.layout.activity_main) {
     private val viewModel: MainViewModel by viewModels {
 //        mainViewModelFactory.get()
         object : ViewModelProvider.Factory {
-            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 return MainViewModel(SharedPreferencesRepository(applicationContext)) as T
             }
         }
