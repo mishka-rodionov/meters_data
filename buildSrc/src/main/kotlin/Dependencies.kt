@@ -1,4 +1,5 @@
 object ConfigData {
+    const val applicationId = "com.rodionov.meters_data"
     const val compileSdkVersion = 31
     const val buildToolsVersion = "30.0.3"
     const val minSdkVersion = 21
