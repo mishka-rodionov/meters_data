@@ -7,9 +7,7 @@
 
     <include app:graph="@navigation/profile_graph" />
     <include app:graph="@navigation/meter_creator_graph" />
-    <include
-        android:id="@+id/loginFlow"
-        app:graph="@navigation/login_graph" />
+
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.rodionov.meters_data.presentation.login.LoginFragment"
