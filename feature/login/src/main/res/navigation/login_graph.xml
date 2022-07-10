@@ -9,5 +9,5 @@
         android:id="@+id/loginFragment"
         android:name="com.rodionov.login.presentation.login.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/login_fragment" />
+        tools:layout="@layout/fragment_login" />
 </navigation>

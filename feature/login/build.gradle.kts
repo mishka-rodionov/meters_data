@@ -13,6 +13,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+        viewBinding.isEnabled = true
     }
 
     buildTypes {
@@ -31,6 +32,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    namespace = "com.rodionov.login"
 }
 
 dependencies {

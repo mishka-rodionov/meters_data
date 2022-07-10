@@ -9,8 +9,8 @@ import com.rodionov.domain.models.Meter
 import com.rodionov.domain.models.MeterInfo
 import com.rodionov.domain.models.User
 
-fun User.toEntity() = UserEntity(id, firstName, lastName, email, phone)
-fun UserEntity.toModel() = User(id, firstName, lastName, email, phone)
+fun User.toEntity() = UserEntity(id, firstName, lastName, email, phone, flatsId)
+fun UserEntity.toModel() = User(id, firstName, lastName, email, phone, flatsId)
 
 fun Flat.toEntity() = FlatEntity(id, name, address, meters?.map { it.id }?.toMutableList())
 suspend fun FlatEntity.toModel(extractor: suspend (List<String>?) -> List<Meter>?) = Flat(id, name, address, extractor.invoke(meters)?.toMutableList())

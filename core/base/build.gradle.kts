@@ -32,6 +32,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    namespace = "com.rodionov.base"
 }
 
 dependencies {
@@ -52,4 +53,7 @@ dependencies {
     implementation(Deps.coroutines)
 
     implementation(Deps.viewBindingDelegate)
+
+    implementation(Deps.dagger)
+    kapt(Deps.daggerCompiler)
 }

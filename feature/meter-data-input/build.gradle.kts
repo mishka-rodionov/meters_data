@@ -32,6 +32,7 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    namespace = "com.rodionov.meter_data_input"
 }
 
 dependencies {

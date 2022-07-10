@@ -3,7 +3,7 @@ package com.rodionov.login.di
 import com.rodionov.login.presentation.login.LoginFragment
 import dagger.Component
 
-@Component(dependencies = [LoginDeps::class])
+@Component(dependencies = [LoginDeps::class], modules = [LoginViewModelModule::class])
 interface LoginComponent {
 
     fun inject(loginFragment: LoginFragment)

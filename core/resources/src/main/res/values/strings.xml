@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">meters_data</string>
     <!--    Profile-->
-    <string name="profile_personal_info">Personal information</string>
-    <string name="profile_flat_list">Flat list</string>
-    <string name="profile_button_save">Save</string>
+    <string name="profile_personal_info">Личная информация</string>
+    <string name="profile_flat_list">Список помещений</string>
+    <string name="profile_button_save">Сохранить</string>
     <!--    Personal information-->
-    <string name="hint_first_name">First name</string>
-    <string name="hint_last_name">Last name</string>
-    <string name="hint_phone">Phone</string>
+    <string name="hint_first_name">Имя</string>
+    <string name="hint_last_name">Фамилия</string>
+    <string name="hint_phone">Телефон</string>
     <!--    Flat information-->
-    <string name="label_flat_list_empty">Flat list is empty</string>
+    <string name="label_flat_list_empty">Список помещений пуст.</string>
     <!--    Content description-->
     <string name="content_description_profile_image">Profile image.</string>
     <string name="content_description_flat_image">Flat image.</string>
@@ -22,4 +22,6 @@
     <string name="btn_negative">Отмена</string>
     <string name="btn_yes">Да</string>
     <string name="btn_no">Нет</string>
+    <string name="btn_enter">Войти</string>
+    <string name="btn_registration">Зарегистрироваться</string>
 </resources>
