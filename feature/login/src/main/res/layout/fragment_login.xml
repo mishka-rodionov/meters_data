@@ -4,12 +4,23 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <TextView
+        android:id="@+id/tvEntranceLabel"
+        style="@style/Text.24"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/label_entrance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilLogin"
         style="@style/TextInputLayoutOutlined"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/tvEntranceLabel">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etLogin"

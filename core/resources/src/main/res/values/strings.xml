@@ -4,6 +4,7 @@
     <string name="profile_personal_info">Личная информация</string>
     <string name="profile_flat_list">Список помещений</string>
     <string name="profile_button_save">Сохранить</string>
+    <string name="profile_exit">Выйти</string>
     <!--    Personal information-->
     <string name="hint_first_name">Имя</string>
     <string name="hint_last_name">Фамилия</string>

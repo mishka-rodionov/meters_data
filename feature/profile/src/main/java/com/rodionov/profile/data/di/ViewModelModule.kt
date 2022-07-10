@@ -31,8 +31,11 @@ class ViewModelModule {
         PersonalInformationViewModel(profileRepository)
 
     @Provides
-    fun provideProfileRepository(userDao: UserDao): ProfileRepository =
-        ProfileRepositoryImpl(userDao)
+    fun provideProfileRepository(
+        userDao: UserDao,
+        preferencesRepository: SharedPreferencesRepository
+    ): ProfileRepository =
+        ProfileRepositoryImpl(userDao, preferencesRepository)
 
 }
 
