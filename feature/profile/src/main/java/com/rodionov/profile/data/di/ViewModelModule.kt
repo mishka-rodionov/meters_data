@@ -6,6 +6,7 @@ import com.rodionov.profile.data.repository_impl.ProfileRepositoryImpl
 import com.rodionov.profile.domain.repository.ProfileRepository
 import com.rodionov.profile.presentation.presonal_info.PersonalInformationViewModel
 import com.rodionov.profile.presentation.profile.ProfileViewModel
+import com.rodionov.utils.repositories.SharedPreferencesRepository
 import dagger.MapKey
 import dagger.Module
 import dagger.Provides
@@ -18,15 +19,20 @@ class ViewModelModule {
     @IntoMap
     @ViewModelKey(ProfileViewModel::class)
     @Provides
-    fun provideProfileViewModel(profileRepository: ProfileRepository): ViewModel = ProfileViewModel(profileRepository)
+    fun provideProfileViewModel(
+        profileRepository: ProfileRepository,
+        sharedPreferencesRepository: SharedPreferencesRepository
+    ): ViewModel = ProfileViewModel(profileRepository, sharedPreferencesRepository)
 
     @IntoMap
     @ViewModelKey(PersonalInformationViewModel::class)
     @Provides
-    fun providePersonalInformationViewModel(profileRepository: ProfileRepository): ViewModel = PersonalInformationViewModel(profileRepository)
+    fun providePersonalInformationViewModel(profileRepository: ProfileRepository): ViewModel =
+        PersonalInformationViewModel(profileRepository)
 
     @Provides
-    fun provideProfileRepository(userDao: UserDao): ProfileRepository = ProfileRepositoryImpl(userDao)
+    fun provideProfileRepository(userDao: UserDao): ProfileRepository =
+        ProfileRepositoryImpl(userDao)
 
 }
 

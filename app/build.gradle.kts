@@ -8,11 +8,11 @@ android {
     compileSdk = ConfigData.compileSdkVersion
 
     defaultConfig {
-        applicationId = "com.rodionov.meters_data"
-        minSdk = 21
-        targetSdk = 31
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = ConfigData.applicationId
+        minSdk = ConfigData.minSdkVersion
+        targetSdk = ConfigData.targetSdkVersion
+        versionCode = ConfigData.versionCode
+        versionName = ConfigData.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         viewBinding.isEnabled = true
@@ -31,6 +31,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    namespace = "com.rodionov.meters_data"
     tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions {
             jvmTarget = "1.8"
@@ -43,13 +44,15 @@ dependencies {
     api(project(":core:resources"))
     api(project(":core:database"))
     api(project(":core:base"))
+    api(project(":core:utils"))
     implementation(project(":feature:profile"))
     implementation(project(":feature:meter-creator"))
+    implementation(project(":feature:login"))
 
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.appcompat:appcompat:1.4.1")
-    implementation("com.google.android.material:material:1.6.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.3")
+    implementation(Deps.androidxCoreKtx)
+    implementation(Deps.appCompat)
+    implementation(Deps.materialDesign)
+    implementation(Deps.constraintLayout)
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
@@ -57,7 +60,7 @@ dependencies {
     implementation(Deps.dagger)
     kapt(Deps.daggerCompiler)
 
-    implementation(Deps.navigation_fragment)
+//    implementation(Deps.navigation_fragment)
     implementation(Deps.navigation_fragment_ktx)
     implementation(Deps.navigation_ui_ktx)
 
@@ -67,4 +70,5 @@ dependencies {
 
     //ViewBindingDelegate
     implementation(Deps.viewBindingDelegate)
+    implementation(Deps.splashScreen)
 }

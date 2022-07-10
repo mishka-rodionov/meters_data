@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tvRegistrationLabel"
+        style="@style/Text.24"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/label_registration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilRegistrationLogin"
+        style="@style/TextInputLayoutOutlined"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvRegistrationLabel">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etRegistrationLogin"
+            android:hint="@string/hint_login"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilFirstName"
+        style="@style/TextInputLayoutOutlined"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilRegistrationLogin">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etFirstName"
+            android:hint="@string/hint_first_name"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilSecondName"
+        style="@style/TextInputLayoutOutlined"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilFirstName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etSecondName"
+            android:hint="@string/hint_last_name"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilRegistrationPassword"
+        style="@style/TextInputLayoutOutlined"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilSecondName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etRegistrationPassword"
+            android:hint="@string/hint_password"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilRepeatRegistrationPassword"
+        style="@style/TextInputLayoutOutlined"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilRegistrationPassword">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etRepeatRegistrationPassword"
+            android:hint="@string/hint_password_repeat"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/btnRegistrationBack"
+        android:layout_width="0dp"
+        style="@style/Button"
+        android:text="@string/btn_back"
+        app:layout_constraintEnd_toStartOf="@id/btnRegistrationComplete"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tilRepeatRegistrationPassword" />
+
+    <Button
+        android:id="@+id/btnRegistrationComplete"
+        android:layout_width="0dp"
+        style="@style/ButtonOutlined"
+        android:text="@string/btn_registration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnRegistrationBack"
+        app:layout_constraintTop_toBottomOf="@id/tilRepeatRegistrationPassword" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

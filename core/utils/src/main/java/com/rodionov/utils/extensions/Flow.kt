@@ -23,3 +23,13 @@ fun <T> Flow<T>.launchWithLifecycleStarted(
         this@launchWithLifecycleStarted.flowWithLifecycle(lifecycle = lifecycle).collect()
     }
 }
+
+fun <T> Flow<T>.launchWithLifecycleCreated(
+    lifecycleScope: LifecycleCoroutineScope,
+    lifecycle: Lifecycle
+) {
+    lifecycleScope.launch {
+        Log.d("LOG_TAG", "launchWithLifecycleStarted:  ${this::class.simpleName} ${lifecycle.currentState}")
+        this@launchWithLifecycleCreated.flowWithLifecycle(lifecycle = lifecycle, minActiveState = Lifecycle.State.CREATED).collect()
+    }
+}

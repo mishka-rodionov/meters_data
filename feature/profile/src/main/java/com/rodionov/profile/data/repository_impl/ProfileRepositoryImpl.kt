@@ -20,7 +20,7 @@ class ProfileRepositoryImpl /*@Inject*/ constructor(
         val user = userDao.getUser()
         return if (user == null) {
             Log.d("LOG_TAG", "getUser: null")
-            val newUser = User(id = "123", firstName = "Ivan", lastName = "Ivanovich", email = "ivan@mail.ru", phone = "+79271234567")
+            val newUser = User(id = "123", firstName = "Ivan", lastName = "Ivanovich", email = "ivan@mail.ru", phone = "+79271234567", login = "")
             userDao.setUser(newUser.toEntity())
             newUser
         } else {

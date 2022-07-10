@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
         android:id="@+id/ivProfileImage"
@@ -17,6 +18,7 @@
 
     <TextView
         android:id="@+id/tvPersonalInfo"
+        style="@style/Text"
         android:layout_width="0dp"
         android:layout_height="@dimen/text_view_profile"
         android:clickable="true"
@@ -31,6 +33,7 @@
 
     <TextView
         android:id="@+id/tvFlatInfo"
+        style="@style/Text"
         android:layout_width="0dp"
         android:layout_height="@dimen/text_view_profile"
         android:clickable="true"
@@ -42,6 +45,26 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvPersonalInfo" />
+
+    <TextView
+        android:id="@+id/tvUserLastName"
+        style="@style/Text.24.Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/guidelineProfile"
+        tools:text="Родионов"/>
+
+    <TextView
+        android:id="@+id/tvUserFirstName"
+        style="@style/Text.24.Bold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvUserLastName"
+        tools:text="Михаил"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineProfile"
