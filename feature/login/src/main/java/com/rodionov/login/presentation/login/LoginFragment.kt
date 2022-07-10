@@ -35,7 +35,7 @@ class LoginFragment: BaseFragment(R.layout.fragment_login) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnRegistration.setOnClickListener { viewModel.navigate(R.id.) }
+        binding.btnRegistration.setOnClickListener { viewModel.navigate(R.id.registrationFragment) }
         viewModel.test()
     }
 
