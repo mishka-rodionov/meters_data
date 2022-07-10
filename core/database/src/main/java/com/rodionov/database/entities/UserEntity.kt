@@ -12,6 +12,8 @@ data class UserEntity(
     @PrimaryKey
     @ColumnInfo(name = "id")
     val id: String,
+    @ColumnInfo(name = "login")
+    val login: String,
     @ColumnInfo(name = "first_name")
     val firstName: String,
     @ColumnInfo(name = "last_name")

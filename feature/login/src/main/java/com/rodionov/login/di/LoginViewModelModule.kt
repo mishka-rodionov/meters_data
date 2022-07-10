@@ -2,6 +2,7 @@ package com.rodionov.login.di
 
 import androidx.lifecycle.ViewModel
 import com.rodionov.base.factory.CommonViewModelKey
+import com.rodionov.login.domain.RegistrationRepository
 import com.rodionov.login.presentation.login.LoginViewModel
 import com.rodionov.login.presentation.registration.RegistrationViewModel
 import com.rodionov.utils.repositories.SharedPreferencesRepository
@@ -15,11 +16,15 @@ class LoginViewModelModule {
     @IntoMap
     @CommonViewModelKey(LoginViewModel::class)
     @Provides
-    fun provideLoginViewModel(preferencesRepository: SharedPreferencesRepository): ViewModel = LoginViewModel(preferencesRepository)
+    fun provideLoginViewModel(preferencesRepository: SharedPreferencesRepository): ViewModel =
+        LoginViewModel(preferencesRepository)
 
     @IntoMap
     @CommonViewModelKey(RegistrationViewModel::class)
     @Provides
-    fun provideRegistrationViewModel(preferencesRepository: SharedPreferencesRepository): ViewModel = RegistrationViewModel(preferencesRepository)
+    fun provideRegistrationViewModel(
+        preferencesRepository: SharedPreferencesRepository,
+        registrationRepository: RegistrationRepository
+    ): ViewModel = RegistrationViewModel(preferencesRepository, registrationRepository)
 
 }

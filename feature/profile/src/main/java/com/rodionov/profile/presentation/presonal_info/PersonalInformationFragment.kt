@@ -44,7 +44,8 @@ class PersonalInformationFragment : BaseFragment(R.layout.fragment_personal_info
                     firstName = binding.etPersonalInfoFirstName.text.toString(),
                     lastName = binding.etPersonalInfoLastName.text.toString(),
                     phone = binding.etPersonalInfoPhone.text.toString(),
-                    email = ""
+                    email = "",
+                    login = ""
                 )
             )
         }

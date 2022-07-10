@@ -29,14 +29,17 @@ class StartActivity: AppCompatActivity() {
         lifecycleScope.launch {
             delay(2000)
             startActivity(Intent(this@StartActivity, LoginActivity::class.java))
+            finish()
         }
-//        if(!prefs.getUserId().isNullOrEmpty()) {
-//            Log.d("LOG_TAG", "onCreate: true ${prefs.getUserId() != null}")
-//            startActivity(Intent(this, MainActivity::class.java))
-//        } else {
-//            Log.d("LOG_TAG", "onCreate: false ${prefs.getUserId() != null}")
-////            supportFragmentManager.beginTransaction().add(LoginFragment(), "").commit()
-//        }
+        if(!prefs.getUserId().isNullOrEmpty()) {
+            Log.d("LOG_TAG", "onCreate: true ${prefs.getUserId() != null}")
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        } else {
+            Log.d("LOG_TAG", "onCreate: false ${prefs.getUserId() != null}")
+            startActivity(Intent(this@StartActivity, LoginActivity::class.java))
+            finish()
+        }
 //        finish()
     }
 }

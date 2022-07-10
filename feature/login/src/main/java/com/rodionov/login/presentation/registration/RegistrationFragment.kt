@@ -1,20 +1,26 @@
 package com.rodionov.login.presentation.registration
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.rodionov.base.factory.CommonViewModelFactory
+import com.rodionov.base.interaction.NavigationExecutor
 import com.rodionov.base.platform.BaseFragment
 import com.rodionov.base.platform.BaseViewModel
+import com.rodionov.domain.models.User
 import com.rodionov.login.R
 import com.rodionov.login.databinding.FragmentRegistrationBinding
 import com.rodionov.login.di.LoginComponentViewModel
+import com.rodionov.utils.extensions.launchWithLifecycleStarted
 import dagger.Lazy
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 class RegistrationFragment : BaseFragment(R.layout.fragment_registration) {
@@ -40,8 +46,19 @@ class RegistrationFragment : BaseFragment(R.layout.fragment_registration) {
         binding.btnRegistrationComplete.setOnClickListener {
             if (validate() and validatePasswords()) {
                 Log.d("LOG_TAG", "onViewCreated: all field is valid")
+                screenViewModel.createNewUser(
+                    login = binding.etRegistrationLogin.text.toString().trim(),
+                    firstName = binding.etFirstName.text.toString().trim(),
+                    lastName = binding.etSecondName.text.toString().trim(),
+                    password = binding.etRegistrationPassword.text.toString().trim()
+                )
             }
         }
+        screenViewModel.user.onEach(::handleUserCreate).launchWithLifecycleStarted(lifecycleScope, lifecycle)
+    }
+
+    private fun handleUserCreate(user:User) {
+        (requireActivity() as NavigationExecutor).startActivity()
     }
 
     private fun validatePasswords() =
