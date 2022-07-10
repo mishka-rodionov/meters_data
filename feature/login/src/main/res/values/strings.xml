@@ -3,5 +3,8 @@
 
     <string name="hint_login">Логин</string>
     <string name="hint_password">Пароль</string>
+    <string name="hint_password_repeat">Повторите пароль</string>
+
+    <string name="label_registration">Регистрация</string>
 
 </resources>

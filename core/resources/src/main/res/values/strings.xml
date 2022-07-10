@@ -24,4 +24,5 @@
     <string name="btn_no">Нет</string>
     <string name="btn_enter">Войти</string>
     <string name="btn_registration">Зарегистрироваться</string>
+    <string name="btn_back">Назад</string>
 </resources>
