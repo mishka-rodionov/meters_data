@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">meters_data</string>
+    <string name="app_name">Счётчики</string>
     <!--    Profile-->
     <string name="profile_personal_info">Личная информация</string>
     <string name="profile_flat_list">Список помещений</string>
