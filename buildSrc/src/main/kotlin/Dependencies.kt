@@ -19,7 +19,7 @@ object Versions {
     const val jUnit = "4.12"
     const val dagger = "2.41"
     const val room = "2.4.2"
-    const val lifecycle = "2.4.1"
+    const val lifecycle = "2.5.0"
     const val gson = "2.8.6"
     const val converter_gson = "2.6.1"
     const val navigation_fragment = "2.5.0"

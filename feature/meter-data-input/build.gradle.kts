@@ -14,6 +14,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
+        viewBinding.isEnabled = true
     }
 
     buildTypes {
@@ -36,6 +37,12 @@ android {
 }
 
 dependencies {
+
+    implementation(project(":core:resources"))
+    implementation(project(":core:domain"))
+    implementation(project(":core:database"))
+    implementation(project(":core:base"))
+    implementation(project(":core:utils"))
 
     implementation(Deps.androidxCoreKtx)
     implementation(Deps.appCompat)
