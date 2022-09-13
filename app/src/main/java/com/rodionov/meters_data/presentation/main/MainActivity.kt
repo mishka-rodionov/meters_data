@@ -2,6 +2,7 @@ package com.rodionov.meters_data.presentation.main
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -26,6 +27,9 @@ class MainActivity : BaseActivity(R.layout.activity_main), NavigationExecutor {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.title = ""
+
+        window.statusBarColor = ContextCompat.getColor(this, com.rodionov.ui.R.color.colorPrimary)
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.mainContainer) as NavHostFragment
         val navController = navHostFragment.navController
@@ -36,7 +40,6 @@ class MainActivity : BaseActivity(R.layout.activity_main), NavigationExecutor {
 
     private fun initToolbar(navController: NavController) {
         setSupportActionBar(binding.mainToolbar)
-        supportActionBar?.title = ""
         setupActionBarWithNavController(navController = navController, AppBarConfiguration(navGraph = navController.graph, drawerLayout = null))
     }
 

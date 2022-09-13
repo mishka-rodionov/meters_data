@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="BaseTheme">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/colorPrimaryNight</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorOnPrimary">@color/black</item>
         <item name="android:textColor">@color/colorTextNight</item>
         <!-- Secondary brand color. -->
