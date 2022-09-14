@@ -8,6 +8,7 @@ import com.rodionov.database.dao.MeterInfoDao
 import com.rodionov.database.dao.UserDao
 import com.rodionov.login.di.LoginDeps
 import com.rodionov.meter_creator.di.MeterCreatorDeps
+import com.rodionov.meter_data_input.di.MeterDataInputDeps
 import com.rodionov.meters_data.presentation.main.MainActivity
 import com.rodionov.profile.data.factory.ViewModelFactory
 import com.rodionov.profile.data.di.ProfileDeps
@@ -18,7 +19,7 @@ import dagger.Module
 import dagger.Provides
 
 @Component(modules = [AppModule::class, DatabaseModule::class, MainViewModelModule::class])
-interface AppComponent : ProfileDeps, MeterCreatorDeps, LoginDeps {
+interface AppComponent : ProfileDeps, MeterCreatorDeps, LoginDeps, MeterDataInputDeps {
 
     override val userDao: UserDao
     override val meterDao: MeterDao
