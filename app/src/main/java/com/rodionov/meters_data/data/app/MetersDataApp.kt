@@ -10,7 +10,7 @@ import com.rodionov.profile.data.di.ProfileDepsStore
 
 class MetersDataApp : Application() {
 
-    val appComponent: AppComponent by lazy { DaggerAppComponent.builder().context(applicationContext).build() }
+    private val appComponent: AppComponent by lazy { DaggerAppComponent.builder().context(applicationContext).build() }
 
     override fun onCreate() {
         super.onCreate()

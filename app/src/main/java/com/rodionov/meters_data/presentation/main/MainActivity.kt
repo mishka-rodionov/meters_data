@@ -29,7 +29,7 @@ class MainActivity : BaseActivity(R.layout.activity_main), NavigationExecutor {
         super.onCreate(savedInstanceState)
         supportActionBar?.title = ""
 
-        window.statusBarColor = ContextCompat.getColor(this, com.rodionov.ui.R.color.colorPrimary)
+//        window.statusBarColor = ContextCompat.getColor(this, com.rodionov.ui.R.color.colorPrimary)
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.mainContainer) as NavHostFragment
         val navController = navHostFragment.navController
