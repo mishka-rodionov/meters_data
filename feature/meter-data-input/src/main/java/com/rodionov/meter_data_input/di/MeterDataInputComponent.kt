@@ -5,7 +5,10 @@ import com.rodionov.meter_data_input.presentation.meters.MetersFragment
 import com.rodionov.meter_data_input.presentation.start_input.StartInputFragment
 import dagger.Component
 
-@Component(dependencies = [MeterDataInputDeps::class], modules = [MeterDataInputViewModelModule::class])
+@Component(
+    dependencies = [MeterDataInputDeps::class],
+    modules = [MeterDataInputViewModelModule::class, MeterDataInputRepositoryModule::class]
+)
 interface MeterDataInputComponent {
 
     fun inject(startInputFragment: StartInputFragment)

@@ -2,6 +2,7 @@ package com.rodionov.meter_data_input.di
 
 import androidx.lifecycle.ViewModel
 import com.rodionov.base.factory.CommonViewModelKey
+import com.rodionov.meter_data_input.domain.repository.MeterInputRepository
 import com.rodionov.meter_data_input.presentation.apartments.ApartmentsViewModel
 import com.rodionov.meter_data_input.presentation.meters.MetersViewModel
 import com.rodionov.meter_data_input.presentation.start_input.StartInputViewModel
@@ -20,7 +21,8 @@ class MeterDataInputViewModelModule {
     @IntoMap
     @CommonViewModelKey(MetersViewModel::class)
     @Provides
-    fun provideMetersViewModel(): ViewModel = MetersViewModel()
+    fun provideMetersViewModel(meterInputRepository: MeterInputRepository): ViewModel =
+        MetersViewModel(meterInputRepository)
 
     @IntoMap
     @CommonViewModelKey(ApartmentsViewModel::class)
