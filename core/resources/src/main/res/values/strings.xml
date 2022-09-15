@@ -14,6 +14,7 @@
     <!--    Content description-->
     <string name="content_description_profile_image">Profile image.</string>
     <string name="content_description_flat_image">Flat image.</string>
+    <string name="content_description_image_meter">Meter image.</string>
     <!--    Error-->
     <string name="error_empty_field">Поле должно быть заполнено.</string>
     <string name="error_password_not_equals">Пароли не совпадают.</string>

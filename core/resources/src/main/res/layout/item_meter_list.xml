@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivMeterType"
+        android:layout_width="@dimen/image_meter_list"
+        android:layout_height="@dimen/image_meter_list"
+        android:contentDescription="@string/content_description_image_meter"
+        android:src="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvMeterName"
+        style="@style/Text.18"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_global_mini"
+        android:padding="@dimen/padding_global_micro"
+        app:layout_constraintStart_toEndOf="@id/ivMeterType"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="ХВ Кухня" />
+
+
+    <TextView
+        android:id="@+id/tvFlatAddress"
+        style="@style/Text.12.Hint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_global_mini"
+        android:padding="@dimen/padding_global_micro"
+        app:layout_constraintStart_toEndOf="@id/ivMeterType"
+        app:layout_constraintTop_toBottomOf="@id/tvMeterName"
+        tools:text="Лесная Республика 5 40" />
+
+    <TextView
+        android:id="@+id/tvMeterLastData"
+        style="@style/Text.24"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_global_mini"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/guidelineItemMeterList"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="234" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineItemMeterList"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <View
+        android:id="@+id/viewSeparatorMeterItem"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@drawable/separator"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
