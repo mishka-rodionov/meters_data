@@ -6,13 +6,18 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.rodionov.base.factory.CommonViewModelFactory
 import com.rodionov.base.platform.BaseFragment
 import com.rodionov.meter_data_input.R
+import com.rodionov.meter_data_input.data.dto.MeterItem
 import com.rodionov.meter_data_input.databinding.FragmentMetersBinding
 import com.rodionov.meter_data_input.di.DataInputViewModel
+import com.rodionov.meter_data_input.presentation.meters.adapters.MeterListAdapter
+import com.rodionov.utils.extensions.launchWithLifecycleStarted
 import dagger.Lazy
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 class MetersFragment: BaseFragment(R.layout.fragment_meters) {
@@ -24,9 +29,23 @@ class MetersFragment: BaseFragment(R.layout.fragment_meters) {
 
     override val screenViewModel: MetersViewModel by viewModels { viewModelFactory.get() }
 
+    private val adapter: MeterListAdapter by lazy { MeterListAdapter() }
+
     override fun onAttach(context: Context) {
         ViewModelProvider(this).get<DataInputViewModel>().dataInputComponent.inject(this)
         super.onAttach(context)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        screenViewModel.meters.onEach {  meters ->
+            adapter.itemList = meters.map { MeterItem(
+                meterType = it.type,
+                name = it.name,
+                address = "noname",
+                lastData = "0"
+            ) }
+        }.launchWithLifecycleStarted(lifecycleScope, lifecycle)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,6 +53,7 @@ class MetersFragment: BaseFragment(R.layout.fragment_meters) {
         binding.btnButtonMeters.setOnClickListener {
             screenViewModel.getMeters()
         }
+        binding.rvMeters.adapter = adapter
     }
 
 
