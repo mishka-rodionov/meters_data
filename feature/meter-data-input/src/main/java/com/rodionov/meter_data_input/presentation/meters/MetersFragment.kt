@@ -38,21 +38,16 @@ class MetersFragment: BaseFragment(R.layout.fragment_meters) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        screenViewModel.meters.onEach {  meters ->
-            adapter.itemList = meters.map { MeterItem(
-                meterType = it.type,
-                name = it.name,
-                address = "noname",
-                lastData = "0"
-            ) }
+        screenViewModel.metersFlow.onEach { meters ->
+            adapter.itemList = meters
         }.launchWithLifecycleStarted(lifecycleScope, lifecycle)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.btnButtonMeters.setOnClickListener {
-            screenViewModel.getMeters()
-        }
+//        binding.btnButtonMeters.setOnClickListener {
+//            screenViewModel.getMeters()
+//        }
         binding.rvMeters.adapter = adapter
     }
 
