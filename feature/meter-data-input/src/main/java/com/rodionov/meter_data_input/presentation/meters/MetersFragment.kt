@@ -48,6 +48,7 @@ class MetersFragment: BaseFragment(R.layout.fragment_meters) {
 //        binding.btnButtonMeters.setOnClickListener {
 //            screenViewModel.getMeters()
 //        }
+        screenViewModel.getMeters()
         binding.rvMeters.adapter = adapter
     }
 

@@ -21,9 +21,6 @@ class MetersViewModel(
     private val _metersFlow = MutableSharedFlow<List<MeterItem>>()
     val metersFlow: SharedFlow<List<MeterItem>> = _metersFlow.asSharedFlow()
 
-    init {
-        getMeters()
-    }
 
     fun getMeters() {
         viewModelScope.launch {
