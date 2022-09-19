@@ -55,7 +55,10 @@ open class BaseFragment(@LayoutRes val layout: Int) : Fragment(layout) {
     }
 
     private fun setToolbarTitle() {
-        (requireActivity() as BaseActivity).supportActionBar?.title = toolbarTitle?.let { getString(it) }
+        val actionBar = (requireActivity() as BaseActivity).supportActionBar
+        actionBar?.title = toolbarTitle?.let { getString(it) }
+//        actionBar.setIcon()
+//        actionBar.menu
     }
 
     private fun handleNavigationEvent(navigationEvent: NavigationEvent) {

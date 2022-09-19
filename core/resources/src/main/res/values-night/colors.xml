@@ -3,4 +3,5 @@
     <color name="colorText">#A19E9E</color>
     <color name="colorPrimary">#FF6200EE</color>
     <color name="colorBackground">#000000</color>
+    <color name="colorIconTint">#A19E9E</color>
 </resources>
