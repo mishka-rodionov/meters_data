@@ -19,4 +19,5 @@
     <color name="launcherBackground">#FFFFFF</color>
     <color name="colorBackground">#FFFFFF</color>
     <color name="colorIconTint">#FF000000</color>
+    <color name="colorTenthsDigit">#FF0000</color>
 </resources>

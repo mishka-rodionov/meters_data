@@ -29,7 +29,9 @@ class MetersFragment: BaseFragment(R.layout.fragment_meters) {
 
     override val screenViewModel: MetersViewModel by viewModels { viewModelFactory.get() }
 
-    private val adapter: MeterListAdapter by lazy { MeterListAdapter() }
+    private val adapter: MeterListAdapter by lazy { MeterListAdapter{
+        screenViewModel.navigate(R.id.meterInputFragment)
+    } }
 
     override fun onAttach(context: Context) {
         ViewModelProvider(this).get<DataInputViewModel>().dataInputComponent.inject(this)

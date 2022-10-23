@@ -10,4 +10,9 @@
         android:name="com.rodionov.meter_data_input.presentation.start_input.StartInputFragment"
         android:label="StartInputFragment"
         tools:layout="@layout/fragment_start_input"/>
+    <fragment
+        android:id="@+id/meterInputFragment"
+        android:name="com.rodionov.meter_data_input.presentation.meter_input.MeterInputFragment"
+        android:label="MeterInputFragment"
+        tools:layout="@layout/fragment_meter_input"/>
 </navigation>

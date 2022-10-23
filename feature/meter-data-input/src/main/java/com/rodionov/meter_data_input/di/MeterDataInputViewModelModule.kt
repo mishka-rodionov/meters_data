@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.rodionov.base.factory.CommonViewModelKey
 import com.rodionov.meter_data_input.domain.repository.MeterInputRepository
 import com.rodionov.meter_data_input.presentation.apartments.ApartmentsViewModel
+import com.rodionov.meter_data_input.presentation.meter_input.MeterInputViewModel
 import com.rodionov.meter_data_input.presentation.meters.MetersViewModel
 import com.rodionov.meter_data_input.presentation.start_input.StartInputViewModel
 import dagger.Module
@@ -28,5 +29,10 @@ class MeterDataInputViewModelModule {
     @CommonViewModelKey(ApartmentsViewModel::class)
     @Provides
     fun provideApartmentsViewModel(): ViewModel = ApartmentsViewModel()
+
+    @IntoMap
+    @CommonViewModelKey(MeterInputViewModel::class)
+    @Provides
+    fun provideMeterInputViewModel(): ViewModel = MeterInputViewModel()
 
 }

@@ -10,7 +10,9 @@ import com.rodionov.meter_data_input.R
 import com.rodionov.meter_data_input.data.dto.MeterItem
 import com.rodionov.ui.databinding.ItemMeterListBinding
 
-class MeterListAdapter : RecyclerView.Adapter<MeterListAdapter.MeterListViewHolder>() {
+class MeterListAdapter(
+    private val clickListener: (MeterItem) -> Unit
+) : RecyclerView.Adapter<MeterListAdapter.MeterListViewHolder>() {
 
     var itemList: List<MeterItem> = emptyList()
         set(value) {
@@ -34,6 +36,7 @@ class MeterListAdapter : RecyclerView.Adapter<MeterListAdapter.MeterListViewHold
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: MeterItem) {
+            binding.root.setOnClickListener { clickListener.invoke(item) }
             binding.tvMeterName.text = item.name
             binding.tvFlatAddress.text = item.address
             binding.tvMeterLastData.text = item.lastData
