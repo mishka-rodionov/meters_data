@@ -15,6 +15,8 @@ import javax.inject.Inject
 
 class MeterInputFragment: BaseFragment(R.layout.fragment_meter_input) {
 
+    override val toolbarTitle = R.string.toolbar_title_meter_input
+
     private val binding: FragmentMeterInputBinding by viewBinding(FragmentMeterInputBinding::bind)
 
     @Inject

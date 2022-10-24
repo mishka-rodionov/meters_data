@@ -2,4 +2,6 @@
 <resources>
     <string name="toolbar_title_meters">Счетчики</string>
     <string name="toolbar_title_apartments">Квартиры</string>
+    <string name="toolbar_title_meter_input">Ввод показаний</string>
+    <string name="label_meter_input">Введите текущие показания</string>
 </resources>

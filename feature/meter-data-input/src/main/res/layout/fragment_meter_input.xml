@@ -2,84 +2,163 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="@dimen/padding_global_x_extra">
+    android:layout_height="match_parent">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilThousandsDigit"
-        style="@style/TextInputLayoutOutlined"
+    <EditText
+        android:id="@+id/etHundredsDigit"
         android:layout_width="0dp"
         android:layout_height="@dimen/input_digit_height"
-        android:layout_marginStart="@dimen/padding_global"
-        android:layout_marginEnd="@dimen/padding_global_micro"
-        app:layout_constraintEnd_toStartOf="@id/tilHundredsDigit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginHorizontal="@dimen/padding_global_micro"
+        android:background="@drawable/bg_digit_enter"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:layout_marginTop="@dimen/padding_global"
+        android:minHeight="@dimen/input_digit_height"
+        android:nextFocusDown="@id/etTensDigit"
+        android:padding="@dimen/padding_global_micro"
+        android:textSize="@dimen/font_24"
+        app:layout_constraintEnd_toStartOf="@id/etTensDigit"
+        app:layout_constraintStart_toEndOf="@id/etThousandsDigit"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentMeterDataLabel" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etThousandsDigit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="numberDecimal" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilHundredsDigit"
-        style="@style/TextInputLayoutOutlined"
+    <EditText
+        android:id="@+id/etTensDigit"
         android:layout_width="0dp"
         android:layout_height="@dimen/input_digit_height"
-        android:layout_marginStart="@dimen/padding_global_micro"
-        android:layout_marginEnd="@dimen/padding_global_micro"
-        app:layout_constraintEnd_toStartOf="@id/tilTensDigit"
-        app:layout_constraintStart_toEndOf="@id/tilThousandsDigit"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginHorizontal="@dimen/padding_global_micro"
+        android:background="@drawable/bg_digit_enter"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:layout_marginTop="@dimen/padding_global"
+        android:minHeight="@dimen/input_digit_height"
+        android:nextFocusDown="@id/etUnitsDigit"
+        android:padding="@dimen/padding_global_micro"
+        android:textSize="@dimen/font_24"
+        app:layout_constraintEnd_toStartOf="@id/etUnitsDigit"
+        app:layout_constraintStart_toEndOf="@id/etHundredsDigit"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentMeterDataLabel" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etHundredsDigit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="numberDecimal" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilTensDigit"
-        style="@style/TextInputLayoutOutlined"
+    <EditText
+        android:id="@+id/etUnitsDigit"
         android:layout_width="0dp"
         android:layout_height="@dimen/input_digit_height"
-        android:layout_marginStart="@dimen/padding_global_micro"
-        android:layout_marginEnd="@dimen/padding_global_micro"
-        app:layout_constraintEnd_toStartOf="@id/tilUnitsDigit"
-        app:layout_constraintStart_toEndOf="@id/tilHundredsDigit"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etTensDigit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="numberDecimal" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilUnitsDigit"
-        style="@style/TextInputLayoutOutlined"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/input_digit_height"
-        android:layout_marginStart="@dimen/padding_global_micro"
-        android:layout_marginEnd="@dimen/padding_global_micro"
+        android:layout_marginHorizontal="@dimen/padding_global_micro"
+        android:background="@drawable/bg_digit_enter"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:layout_marginTop="@dimen/padding_global"
+        android:minHeight="@dimen/input_digit_height"
+        android:nextFocusDown="@id/etTenthsDigit"
+        android:padding="@dimen/padding_global_micro"
+        android:textSize="@dimen/font_24"
         app:layout_constraintEnd_toStartOf="@id/tvDecimalDot"
-        app:layout_constraintStart_toEndOf="@id/tilTensDigit"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintStart_toEndOf="@id/etTensDigit"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentMeterDataLabel" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etUnitsDigit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="numberDecimal" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+    <EditText
+        android:id="@+id/etThousandsDigit"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/input_digit_height"
+        android:layout_marginEnd="@dimen/padding_global_micro"
+        android:layout_marginStart="@dimen/padding_global"
+        android:background="@drawable/bg_digit_enter"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:layout_marginTop="@dimen/padding_global"
+        android:minHeight="@dimen/input_digit_height"
+        android:nextFocusDown="@id/etHundredsDigit"
+        android:padding="@dimen/padding_global_micro"
+        android:textSize="@dimen/font_24"
+        app:layout_constraintEnd_toStartOf="@id/etHundredsDigit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentMeterDataLabel" />
+
+
+    <EditText
+        android:id="@+id/etTenthsDigit"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/input_digit_height"
+        android:layout_marginHorizontal="@dimen/padding_global_micro"
+        android:background="@drawable/bg_digit_enter"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:layout_marginTop="@dimen/padding_global"
+        android:minHeight="@dimen/input_digit_height"
+        android:nextFocusDown="@id/etHundredthsDigit"
+        android:padding="@dimen/padding_global_micro"
+        android:textColor="@color/colorTenthsDigit"
+        android:textSize="@dimen/font_24"
+        app:layout_constraintEnd_toStartOf="@id/etHundredthsDigit"
+        app:layout_constraintStart_toEndOf="@id/tvDecimalDot"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentMeterDataLabel" />
+
+
+    <EditText
+        android:id="@+id/etHundredthsDigit"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/input_digit_height"
+        android:layout_marginHorizontal="@dimen/padding_global_micro"
+        android:background="@drawable/bg_digit_enter"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:layout_marginTop="@dimen/padding_global"
+        android:minHeight="@dimen/input_digit_height"
+        android:nextFocusDown="@id/etThousandthsDigit"
+        android:padding="@dimen/padding_global_micro"
+        android:textColor="@color/colorTenthsDigit"
+        android:textSize="@dimen/font_24"
+        app:layout_constraintEnd_toStartOf="@id/etThousandthsDigit"
+        app:layout_constraintStart_toEndOf="@id/etTenthsDigit"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentMeterDataLabel" />
+
+
+    <EditText
+        android:id="@+id/etThousandthsDigit"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/input_digit_height"
+        android:layout_marginStart="@dimen/padding_global_micro"
+        android:layout_marginEnd="@dimen/padding_global"
+        android:background="@drawable/bg_digit_enter"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:layout_marginTop="@dimen/padding_global"
+        android:minHeight="@dimen/input_digit_height"
+        android:padding="@dimen/padding_global_micro"
+        android:textColor="@color/colorTenthsDigit"
+        android:textSize="@dimen/font_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/etHundredthsDigit"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentMeterDataLabel" />
+
+
+    <TextView
+        android:id="@+id/tvCurrentMeterDataLabel"
+        style="@style/Text.24"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_global"
+        android:layout_marginHorizontal="@dimen/padding_global"
+        android:text="@string/label_meter_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/tvDecimalDot"
@@ -89,72 +168,9 @@
         android:layout_marginStart="@dimen/padding_global_micro"
         android:layout_marginEnd="@dimen/padding_global_micro"
         android:text="."
-        app:layout_constraintEnd_toStartOf="@id/tilTenthsDigit"
-        app:layout_constraintStart_toEndOf="@id/tilUnitsDigit"
-        app:layout_constraintBottom_toBottomOf="@id/tilUnitsDigit"/>
+        app:layout_constraintBottom_toBottomOf="@id/etUnitsDigit"
+        app:layout_constraintEnd_toStartOf="@id/etTenthsDigit"
+        app:layout_constraintStart_toEndOf="@id/etUnitsDigit" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilTenthsDigit"
-        style="@style/TextInputLayoutOutlined"
-        app:hintEnabled="false"
-        app:helperTextEnabled="false"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/input_digit_height"
-        android:layout_marginStart="@dimen/padding_global_micro"
-        android:layout_marginEnd="@dimen/padding_global_micro"
-        app:layout_constraintEnd_toStartOf="@id/tilHundredthsDigit"
-        app:layout_constraintStart_toEndOf="@id/tvDecimalDot"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <EditText
-            android:id="@+id/etTenthsDigit"
-            style="@style/Widget.Material3.TextInputEditText.FilledBox.Dense"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="@color/colorTenthsDigit"
-            android:textSize="@dimen/font_12"
-            android:inputType="numberDecimal" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilHundredthsDigit"
-        style="@style/TextInputLayoutOutlined"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/input_digit_height"
-        android:layout_marginStart="@dimen/padding_global_micro"
-        android:layout_marginEnd="@dimen/padding_global_micro"
-        app:layout_constraintEnd_toStartOf="@id/tilThousandthsDigit"
-        app:layout_constraintStart_toEndOf="@id/tilTenthsDigit"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etHundredthsDigit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="@color/colorTenthsDigit"
-            android:inputType="numberDecimal" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tilThousandthsDigit"
-        style="@style/TextInputLayoutOutlined"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/input_digit_height"
-        android:layout_marginStart="@dimen/padding_global_micro"
-        android:layout_marginEnd="@dimen/padding_global_micro"
-        app:layout_constraintStart_toEndOf="@id/tilHundredthsDigit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etThousandthsDigit"
-            android:textColor="@color/colorTenthsDigit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="numberDecimal" />
-
-    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
