@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.rodionov.base.factory.CommonViewModelFactory
+import com.rodionov.base.interaction.NavigationExecutor
 import com.rodionov.base.platform.BaseFragment
 import com.rodionov.base.platform.BaseViewModel
 import com.rodionov.login.R
@@ -35,7 +36,11 @@ class LoginFragment: BaseFragment(R.layout.fragment_login) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.getUser()
         binding.btnRegistration.setOnClickListener { viewModel.navigate(R.id.registrationFragment) }
+        binding.btnLogin.setOnClickListener {
+            (requireActivity() as NavigationExecutor).startActivity()
+        }
         viewModel.test()
     }
 
