@@ -1,6 +1,5 @@
 package com.rodionov.login.data.repository_impl
 
-import android.content.res.Resources.NotFoundException
 import com.rodionov.base.interaction.BaseRepository
 import com.rodionov.base.state.ErrorHandler
 import com.rodionov.base.state.State
@@ -18,11 +17,11 @@ class LoginRepositoryImpl @Inject constructor(
 
     override suspend fun getUser(
         credentials: Credentials,
-        onSuccess: (User) -> Unit,
+        onSuccess: (User?) -> Unit,
         onState: (State) -> Unit
     ) {
         execute(onSuccess, onState) {
-            userDao.getUser()?.toModel() ?: throw NotFoundException()
+            userDao.getUserByCredentials(credentials.login)?.toModel()
         }
     }
 }

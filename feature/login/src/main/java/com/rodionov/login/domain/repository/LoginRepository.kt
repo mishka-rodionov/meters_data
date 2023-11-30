@@ -6,6 +6,6 @@ import com.rodionov.login.data.dto.Credentials
 
 interface LoginRepository {
 
-    suspend fun getUser(credentials: Credentials, onSuccess:(User) -> Unit, onState: (State) -> Unit)
+    suspend fun getUser(credentials: Credentials, onSuccess:(User?) -> Unit, onState: (State) -> Unit)
 
 }
