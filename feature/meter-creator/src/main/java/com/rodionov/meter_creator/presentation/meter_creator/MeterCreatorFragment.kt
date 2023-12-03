@@ -95,12 +95,12 @@ class MeterCreatorFragment : BaseFragment(R.layout.fragment_meter_creator) {
                     meterType = MeterType.values()
                         .find { it.meterName == binding.actvMeterType.text.toString() }
                         ?: return@setOnClickListener,
-                    serialNumber = binding.etMeterSerialNumber.text.toString(),
+                    serialNumber = binding.etMeterSerialNumber.text.toString().trim().takeIf { it.isNotBlank() } ?: "",
                     meterName = binding.etMeterName.text.toString(),
                     dataSendDay = binding.tvDayOfDataSend.text.toString().toInt(),
-                    payRate = binding.etPayRate.text.toString().toDouble(),
-                    dataSendType = binding.actvSendDataType.text.toString(),
-                    company = binding.etCompanyName.text.toString()
+                    payRate = binding.etPayRate.text.toString().trim().takeIf { it.isNotBlank() }?.toDouble() ?: 0.0,
+                    dataSendType = binding.actvSendDataType.text.toString().trim().takeIf { it.isNotBlank() } ?: "",
+                    company = binding.etCompanyName.text.toString().trim().takeIf { it.isNotBlank() } ?: ""
                 )
             }
         }
@@ -123,10 +123,6 @@ class MeterCreatorFragment : BaseFragment(R.layout.fragment_meter_creator) {
         listOf(
             binding.tilMeterType,
             binding.tilMeterName,
-            binding.tilMeterSerialNumber,
-            binding.tilPayRate,
-            binding.tilSendDataType,
-            binding.tilCompanyName
         ).forEach {
             result = result and validateField(it)
         }
