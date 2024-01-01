@@ -7,6 +7,7 @@ import com.rodionov.domain.models.Flat
 import com.rodionov.domain.models.Meter
 import com.rodionov.meter_data_input.data.dto.MeterItem
 import com.rodionov.meter_data_input.domain.repository.MeterInputRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -23,6 +24,7 @@ class MetersViewModel(
 
 
     fun getMeters() {
+        meters.clear()
         viewModelScope.launch {
             meterInputRepository.getMeters(::handleGetMeters, ::handleState)
         }
@@ -44,20 +46,23 @@ class MetersViewModel(
 
     private fun handleGetFlats(flats: List<Flat>) {
         val meterItems = mutableListOf<MeterItem>()
-        meters.forEach { meter ->
-            val flat = flats.find { it.meters?.contains(meter) ?: false }
-            if (flat != null) {
-                meterItems.add(
-                    MeterItem(
-                        meterType = meter.type,
-                        name = meter.name,
-                        address = flat.address,
-                        lastData = "0"
+        viewModelScope.launch(Dispatchers.IO) {
+            meters.forEach { meter ->
+                val flat = flats.find { it.meters?.contains(meter) ?: false }
+                if (flat != null) {
+                    meterItems.add(
+                        MeterItem(
+                            id = meter.id,
+                            meterType = meter.type,
+                            name = meter.name,
+                            address = flat.address,
+                            lastData = meterInputRepository.getLastMeterValue(meter.id).toString()
+                        )
                     )
-                )
+                }
             }
+            _metersFlow.emit(meterItems)
         }
-        viewModelScope.launch { _metersFlow.emit(meterItems) }
     }
 
 }

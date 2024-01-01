@@ -4,4 +4,5 @@
     <string name="toolbar_title_apartments">Квартиры</string>
     <string name="toolbar_title_meter_input">Ввод показаний</string>
     <string name="label_meter_input">Введите текущие показания</string>
+    <string name="label_save_meter_input">Сохранить показания</string>
 </resources>

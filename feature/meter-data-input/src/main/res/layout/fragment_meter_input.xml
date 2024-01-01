@@ -178,5 +178,14 @@
         app:layout_constraintEnd_toStartOf="@id/etTenthsDigit"
         app:layout_constraintStart_toEndOf="@id/etUnitsDigit" />
 
+    <Button
+        android:id="@+id/btnSaveData"
+        style="@style/Button"
+        android:layout_marginTop="@dimen/padding_global_mini"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etThousandthsDigit"
+        android:text="@string/label_save_meter_input"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

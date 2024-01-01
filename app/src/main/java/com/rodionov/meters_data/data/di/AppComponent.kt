@@ -4,6 +4,7 @@ import android.content.Context
 import com.rodionov.base.state.ErrorHandler
 import com.rodionov.database.dao.FlatDao
 import com.rodionov.database.dao.MeterDao
+import com.rodionov.database.dao.MeterDataDao
 import com.rodionov.database.dao.MeterInfoDao
 import com.rodionov.database.dao.UserDao
 import com.rodionov.login.di.LoginDeps
@@ -25,6 +26,7 @@ interface AppComponent : ProfileDeps, MeterCreatorDeps, LoginDeps, MeterDataInpu
     override val meterDao: MeterDao
     override val flatDao: FlatDao
     override val meterInfoDao: MeterInfoDao
+    override val meterDataDao: MeterDataDao
 
     fun inject(mainActivity: MainActivity)
 

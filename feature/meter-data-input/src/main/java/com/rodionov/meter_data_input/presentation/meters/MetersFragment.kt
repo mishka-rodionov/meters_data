@@ -3,6 +3,7 @@ package com.rodionov.meter_data_input.presentation.meters
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
@@ -30,7 +31,7 @@ class MetersFragment: BaseFragment(R.layout.fragment_meters) {
     override val screenViewModel: MetersViewModel by viewModels { viewModelFactory.get() }
 
     private val adapter: MeterListAdapter by lazy { MeterListAdapter{
-        screenViewModel.navigate(R.id.meterInputFragment)
+        screenViewModel.navigate(R.id.meterInputFragment, bundleOf(METER_ID to it.id))
     } }
 
     override fun onAttach(context: Context) {
@@ -54,5 +55,8 @@ class MetersFragment: BaseFragment(R.layout.fragment_meters) {
 //        }
     }
 
+    companion object {
+        const val METER_ID = "meterId"
+    }
 
 }

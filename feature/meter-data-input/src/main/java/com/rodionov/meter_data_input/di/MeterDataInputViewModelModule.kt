@@ -33,6 +33,6 @@ class MeterDataInputViewModelModule {
     @IntoMap
     @CommonViewModelKey(MeterInputViewModel::class)
     @Provides
-    fun provideMeterInputViewModel(): ViewModel = MeterInputViewModel()
+    fun provideMeterInputViewModel(meterInputRepository: MeterInputRepository): ViewModel = MeterInputViewModel(meterInputRepository)
 
 }
