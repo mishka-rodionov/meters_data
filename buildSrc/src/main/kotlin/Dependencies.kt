@@ -19,7 +19,7 @@ object Versions {
     const val jUnit = "4.12"
     const val dagger = "2.41"
     const val room = "2.4.2"
-    const val lifecycle = "2.4.1"
+    const val lifecycle = "2.5.0"
     const val gson = "2.8.6"
     const val converter_gson = "2.6.1"
     const val navigation_fragment = "2.5.0"
@@ -28,6 +28,7 @@ object Versions {
     const val kotlin_coroutines = "1.3.9"
     const val viewPager2 = "1.0.0"
     const val splashScreen = "1.0.0-beta02"
+    const val matisse = "v0.5.3-beta3"
 }
 
 /**
@@ -66,4 +67,5 @@ object Deps {
     val coroutines by lazy {"org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlin_coroutines}"}
     val viewpager2 by lazy {"androidx.viewpager2:viewpager2:${Versions.viewPager2}"}
     val splashScreen by lazy { "androidx.core:core-splashscreen:${Versions.splashScreen}" }
+    val matisse by lazy { "com.zhihu.android:matisse:${Versions.matisse}" }
 }

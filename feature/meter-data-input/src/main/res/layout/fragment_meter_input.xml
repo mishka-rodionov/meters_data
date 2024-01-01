@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/etHundredsDigit"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/input_digit_height"
+        android:layout_marginHorizontal="@dimen/padding_global_micro"
+        android:background="@drawable/bg_digit_enter"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:nextFocusRight="@id/etTensDigit"
+        android:layout_marginTop="@dimen/padding_global"
+        android:minHeight="@dimen/input_digit_height"
+        android:nextFocusDown="@id/etTensDigit"
+        android:padding="@dimen/padding_global_micro"
+        android:textSize="@dimen/font_24"
+        app:layout_constraintEnd_toStartOf="@id/etTensDigit"
+        app:layout_constraintStart_toEndOf="@id/etThousandsDigit"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentMeterDataLabel" />
+
+    <EditText
+        android:id="@+id/etTensDigit"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/input_digit_height"
+        android:layout_marginHorizontal="@dimen/padding_global_micro"
+        android:background="@drawable/bg_digit_enter"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:nextFocusRight="@id/etUnitsDigit"
+        android:maxLines="1"
+        android:layout_marginTop="@dimen/padding_global"
+        android:minHeight="@dimen/input_digit_height"
+        android:nextFocusDown="@id/etUnitsDigit"
+        android:padding="@dimen/padding_global_micro"
+        android:textSize="@dimen/font_24"
+        app:layout_constraintEnd_toStartOf="@id/etUnitsDigit"
+        app:layout_constraintStart_toEndOf="@id/etHundredsDigit"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentMeterDataLabel" />
+
+
+    <EditText
+        android:id="@+id/etUnitsDigit"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/input_digit_height"
+        android:layout_marginHorizontal="@dimen/padding_global_micro"
+        android:background="@drawable/bg_digit_enter"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:nextFocusRight="@id/etTenthsDigit"
+        android:layout_marginTop="@dimen/padding_global"
+        android:minHeight="@dimen/input_digit_height"
+        android:nextFocusDown="@id/etTenthsDigit"
+        android:padding="@dimen/padding_global_micro"
+        android:textSize="@dimen/font_24"
+        app:layout_constraintEnd_toStartOf="@id/tvDecimalDot"
+        app:layout_constraintStart_toEndOf="@id/etTensDigit"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentMeterDataLabel" />
+
+
+    <EditText
+        android:id="@+id/etThousandsDigit"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/input_digit_height"
+        android:layout_marginEnd="@dimen/padding_global_micro"
+        android:layout_marginStart="@dimen/padding_global"
+        android:background="@drawable/bg_digit_enter"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:nextFocusRight="@id/etHundredsDigit"
+        android:layout_marginTop="@dimen/padding_global"
+        android:minHeight="@dimen/input_digit_height"
+        android:nextFocusDown="@id/etHundredsDigit"
+        android:padding="@dimen/padding_global_micro"
+        android:textSize="@dimen/font_24"
+        app:layout_constraintEnd_toStartOf="@id/etHundredsDigit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentMeterDataLabel" />
+
+
+    <EditText
+        android:id="@+id/etTenthsDigit"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/input_digit_height"
+        android:layout_marginHorizontal="@dimen/padding_global_micro"
+        android:background="@drawable/bg_digit_enter"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:nextFocusRight="@id/etHundredthsDigit"
+        android:layout_marginTop="@dimen/padding_global"
+        android:minHeight="@dimen/input_digit_height"
+        android:nextFocusDown="@id/etHundredthsDigit"
+        android:padding="@dimen/padding_global_micro"
+        android:textColor="@color/colorTenthsDigit"
+        android:textSize="@dimen/font_24"
+        app:layout_constraintEnd_toStartOf="@id/etHundredthsDigit"
+        app:layout_constraintStart_toEndOf="@id/tvDecimalDot"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentMeterDataLabel" />
+
+
+    <EditText
+        android:id="@+id/etHundredthsDigit"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/input_digit_height"
+        android:layout_marginHorizontal="@dimen/padding_global_micro"
+        android:background="@drawable/bg_digit_enter"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:nextFocusRight="@id/etThousandthsDigit"
+        android:layout_marginTop="@dimen/padding_global"
+        android:minHeight="@dimen/input_digit_height"
+        android:nextFocusDown="@id/etThousandthsDigit"
+        android:padding="@dimen/padding_global_micro"
+        android:textColor="@color/colorTenthsDigit"
+        android:textSize="@dimen/font_24"
+        app:layout_constraintEnd_toStartOf="@id/etThousandthsDigit"
+        app:layout_constraintStart_toEndOf="@id/etTenthsDigit"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentMeterDataLabel" />
+
+
+    <EditText
+        android:id="@+id/etThousandthsDigit"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/input_digit_height"
+        android:layout_marginStart="@dimen/padding_global_micro"
+        android:layout_marginEnd="@dimen/padding_global"
+        android:background="@drawable/bg_digit_enter"
+        android:gravity="center"
+        android:inputType="number"
+        android:maxLength="1"
+        android:maxLines="1"
+        android:layout_marginTop="@dimen/padding_global"
+        android:minHeight="@dimen/input_digit_height"
+        android:padding="@dimen/padding_global_micro"
+        android:textColor="@color/colorTenthsDigit"
+        android:textSize="@dimen/font_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/etHundredthsDigit"
+        app:layout_constraintTop_toBottomOf="@id/tvCurrentMeterDataLabel" />
+
+
+    <TextView
+        android:id="@+id/tvCurrentMeterDataLabel"
+        style="@style/Text.24"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_global"
+        android:layout_marginHorizontal="@dimen/padding_global"
+        android:text="@string/label_meter_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tvDecimalDot"
+        style="@style/Text.24.Bold"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/padding_global_micro"
+        android:layout_marginEnd="@dimen/padding_global_micro"
+        android:text="."
+        app:layout_constraintBottom_toBottomOf="@id/etUnitsDigit"
+        app:layout_constraintEnd_toStartOf="@id/etTenthsDigit"
+        app:layout_constraintStart_toEndOf="@id/etUnitsDigit" />
+
+    <Button
+        android:id="@+id/btnSaveData"
+        style="@style/Button"
+        android:layout_marginTop="@dimen/padding_global_mini"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etThousandthsDigit"
+        android:text="@string/label_save_meter_input"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

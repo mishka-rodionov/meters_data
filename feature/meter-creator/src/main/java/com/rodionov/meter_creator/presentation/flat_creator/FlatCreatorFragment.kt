@@ -62,7 +62,7 @@ class FlatCreatorFragment : BaseFragment(R.layout.fragment_flat_creator) {
     }
 
     private fun validate(): Boolean {
-        return validateField(binding.tilFlatAddress) and validateField(binding.tilFlatName)
+        return validateField(binding.tilFlatName)
     }
 
     private fun setClearError() {

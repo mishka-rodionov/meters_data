@@ -8,8 +8,8 @@
     <string name="content_description_delete">content_description_delete</string>
 
     <string name="helper_text_flat_address">Задайте адрес помещения, где установлены счетчики.</string>
-    <string name="helper_text_flat_name">Придумайте название для помещения.</string>
-    <string name="helper_text_meter_name">Напишите название счетчика.</string>
+    <string name="helper_text_flat_name">Придумайте название для помещения (обязательное поле).</string>
+    <string name="helper_text_meter_name">Напишите название счетчика. Например: Кухня ХолВод</string>
     <string name="helper_text_meter_serial_number">Введите серийный номер счетчика.</string>
     <string name="helper_text_meter_type">Выберите тип счетчика.</string>
     <string name="helper_text_pay_rate">Введите тариф на оплату услуг.</string>
@@ -26,6 +26,5 @@
     <string name="toolbar_title_meter_editor">Редактор счетчика</string>
 
     <string name="question_meter_add">Создать еще один счетчик?</string>
-
 
 </resources>

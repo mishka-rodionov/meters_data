@@ -35,19 +35,30 @@ open class BaseFragment(@LayoutRes val layout: Int) : Fragment(layout) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("LOG_TAG", "onCreate: name = ${this.javaClass.simpleName}")
-//        screenViewModel.count.onEach { Log.d("LOG_TAG", "onViewCreated: name = ${this.javaClass.simpleName}, count = $it") }.launchWithLifecycleStarted(lifecycleScope, lifecycle)
         screenViewModel.navigate.onEach(::handleNavigationEvent)
             .launchWithLifecycleStarted(lifecycleScope, lifecycle)
         screenViewModel.state.onEach(::handleState).launchWithLifecycleStarted(lifecycleScope, lifecycle)
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        setToolbarTitle()
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setToolbarTitle()
+//        setToolbarTitle()
     }
 
     private fun setToolbarTitle() {
-        (requireActivity() as BaseActivity).supportActionBar?.title = toolbarTitle?.let { getString(it) }
+        val actionBar = (requireActivity() as BaseActivity).supportActionBar
+        actionBar?.title = toolbarTitle?.let { getString(it) }
+//        actionBar.setIcon()
+//        actionBar.menu
     }
 
     private fun handleNavigationEvent(navigationEvent: NavigationEvent) {

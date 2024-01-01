@@ -7,5 +7,6 @@
 
     <include app:graph="@navigation/profile_graph" />
     <include app:graph="@navigation/meter_creator_graph" />
+    <include app:graph="@navigation/meter_data_input_graph"/>
 
 </navigation>

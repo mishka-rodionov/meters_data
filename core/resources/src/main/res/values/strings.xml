@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">meters_data</string>
+    <string name="app_name">Счётчики</string>
     <!--    Profile-->
     <string name="profile_personal_info">Личная информация</string>
     <string name="profile_flat_list">Список помещений</string>
@@ -14,6 +14,10 @@
     <!--    Content description-->
     <string name="content_description_profile_image">Profile image.</string>
     <string name="content_description_flat_image">Flat image.</string>
+    <string name="content_description_image_meter">Meter image.</string>
+    <string name="content_description_menu_add">Menu add.</string>
+    <!--    Menu-->
+    <string name="menu_add_meter">Добавить счетчик</string>
     <!--    Error-->
     <string name="error_empty_field">Поле должно быть заполнено.</string>
     <string name="error_password_not_equals">Пароли не совпадают.</string>
@@ -27,4 +31,7 @@
     <string name="btn_enter">Войти</string>
     <string name="btn_registration">Зарегистрироваться</string>
     <string name="btn_back">Назад</string>
+
+    <string name="tab_apartments">Квартиры</string>
+    <string name="tab_meters">Счетчики</string>
 </resources>

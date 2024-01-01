@@ -48,6 +48,7 @@ dependencies {
     implementation(project(":feature:profile"))
     implementation(project(":feature:meter-creator"))
     implementation(project(":feature:login"))
+    implementation(project(":feature:meter-data-input"))
 
     implementation(Deps.androidxCoreKtx)
     implementation(Deps.appCompat)

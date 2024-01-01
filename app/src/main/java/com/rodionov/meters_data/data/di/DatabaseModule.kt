@@ -5,6 +5,7 @@ import androidx.room.Room
 import com.rodionov.database.MetersDataDatabase
 import com.rodionov.database.dao.FlatDao
 import com.rodionov.database.dao.MeterDao
+import com.rodionov.database.dao.MeterDataDao
 import com.rodionov.database.dao.MeterInfoDao
 import com.rodionov.database.dao.UserDao
 import dagger.Module
@@ -31,5 +32,8 @@ class DatabaseModule {
 
     @Provides
     fun provideMeterInfoDao(database: MetersDataDatabase): MeterInfoDao = database.meterInfoDao()
+
+    @Provides
+    fun provideMeteDataDao(database: MetersDataDatabase): MeterDataDao = database.meterDataDao()
 
 }
